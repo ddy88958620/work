@@ -1,0 +1,180 @@
+{
+    "create_time": "2014-03-26 00: 38", 
+    "source_name": "tencent", 
+    "channels": [
+        {
+            "channel_name": "贵州卫视", 
+            "url_list": [
+                "http://v.qq.com/live/playid/3051487004"
+            ]
+        }, 
+        {
+            "channel_name": "安徽卫视", 
+            "url_list": [
+                "http://v.qq.com/live/playid/623043810"
+            ]
+        }, 
+        {
+            "channel_name": "宁夏卫视", 
+            "url_list": [
+                "http://v.qq.com/live/playid/3778086045"
+            ]
+        }, 
+        {
+            "channel_name": "云南卫视", 
+            "url_list": [
+                "http://v.qq.com/live/playid/708402866"
+            ]
+        }, 
+        {
+            "channel_name": "浙江卫视[高清]", 
+            "url_list": [
+                "http://v.qq.com/live/playid/1975434150"
+            ]
+        }, 
+        {
+            "channel_name": "浙江卫视", 
+            "url_list": [
+                "http://v.qq.com/live/playid/2907109968"
+            ]
+        }, 
+        {
+            "channel_name": "英语辅导", 
+            "url_list": [
+                "http://v.qq.com/live/playid/2136314174"
+            ]
+        }, 
+        {
+            "channel_name": "珠江频道", 
+            "url_list": [
+                "http://v.qq.com/live/playid/1926463423"
+            ]
+        }, 
+        {
+            "channel_name": "广东电视台汽车会展频道", 
+            "url_list": [
+                "http://v.qq.com/live/playid/1039787969"
+            ]
+        }, 
+        {
+            "channel_name": "东南卫视", 
+            "url_list": [
+                "http://v.qq.com/live/playid/1000637964"
+            ]
+        }, 
+        {
+            "channel_name": "天津卫视", 
+            "url_list": [
+                "http://v.qq.com/live/playid/830075195"
+            ]
+        }, 
+        {
+            "channel_name": "辽宁卫视", 
+            "url_list": [
+                "http://v.qq.com/live/playid/3006271240"
+            ]
+        }, 
+        {
+            "channel_name": "内蒙古卫视", 
+            "url_list": [
+                "http://v.qq.com/live/playid/2342060367"
+            ]
+        }, 
+        {
+            "channel_name": "广东公共", 
+            "url_list": [
+                "http://v.qq.com/live/playid/4035478592"
+            ]
+        }, 
+        {
+            "channel_name": "广东卫视[高清]", 
+            "url_list": [
+                "http://v.qq.com/live/playid/857894899"
+            ]
+        }, 
+        {
+            "channel_name": "广东卫视", 
+            "url_list": [
+                "http://v.qq.com/live/playid/2084914015"
+            ]
+        }, 
+        {
+            "channel_name": "东方卫视", 
+            "url_list": [
+                "http://v.qq.com/live/playid/3661744838"
+            ]
+        }, 
+        {
+            "channel_name": "东方卫视[高清]", 
+            "url_list": [
+                "http://v.qq.com/live/playid/3900155972"
+            ]
+        }, 
+        {
+            "channel_name": "陕西卫视", 
+            "url_list": [
+                "http://v.qq.com/live/playid/2739752321"
+            ]
+        }, 
+        {
+            "channel_name": "广西卫视", 
+            "url_list": [
+                "http://v.qq.com/live/playid/974433428"
+            ]
+        }, 
+        {
+            "channel_name": "青海卫视", 
+            "url_list": [
+                "http://v.qq.com/live/playid/877636586"
+            ]
+        }, 
+        {
+            "channel_name": "湖北卫视", 
+            "url_list": [
+                "http://v.qq.com/live/playid/1128831868"
+            ]
+        }, 
+        {
+            "channel_name": "河南卫视", 
+            "url_list": [
+                "http://v.qq.com/live/playid/4172356212"
+            ]
+        }, 
+        {
+            "channel_name": "深圳卫视[高清]", 
+            "url_list": [
+                "http://v.qq.com/live/playid/2220552576"
+            ]
+        }, 
+        {
+            "channel_name": "深圳卫视", 
+            "url_list": [
+                "http://v.qq.com/live/playid/2309309351"
+            ]
+        }, 
+        {
+            "channel_name": "四川卫视", 
+            "url_list": [
+                "http://v.qq.com/live/playid/2453801339"
+            ]
+        }, 
+        {
+            "channel_name": "山东卫视", 
+            "url_list": [
+                "http://v.qq.com/live/playid/3660187036"
+            ]
+        }, 
+        {
+            "channel_name": "甘肃卫视", 
+            "url_list": [
+                "http://v.qq.com/live/playid/3444760127"
+            ]
+        }, 
+        {
+            "channel_name": "嘉佳卡通", 
+            "url_list": [
+                "http://v.qq.com/live/playid/1249794075"
+            ]
+        }
+    ]
+}

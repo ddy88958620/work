@@ -1,0 +1,238 @@
+[
+    {
+        "channel": "CCTV 1",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel14"
+    },
+    {
+        "channel": "CCTV 2",
+        "url": "http://vtime1.cntv.chinacache.net:8000/live/flv/channel204"
+    },
+    {
+        "channel": "CCTV 3",
+        "url": "http://vtime1.cntv.chinacache.net:8000/live/flv/channel209"
+    },
+    {
+        "channel": "CCTV 4",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel4"
+    },
+    {
+        "channel": "CCTV 5",
+        "url": "http://vapptime1.cntv.chinacache.net:8000/live/flv/channel214"
+    },
+    {
+        "channel": "CCTV 6",
+        "url": "http://vtime1.cntv.chinacache.net:8000/live/flv/channel219"
+    },
+    {
+        "channel": "CCTV 7",
+        "url": "http://vtime1.cntv.chinacache.net:8000/live/flv/channel224"
+    },
+    {
+        "channel": "CCTV 8",
+        "url": "http://vtime1.cntv.chinacache.net:8000/live/flv/channel229"
+    },
+    {
+        "channel": "CCTV 9",
+        "url": "http://vtime1.cntv.chinacache.net:8000/live/flv/channel294"
+    },
+    {
+        "channel": "CCTV 10",
+        "url": "http://vtime1.cntv.chinacache.net:8000/live/flv/channel234"
+    },
+    {
+        "channel": "CCTV 11",
+        "url": "http://vtime1.cntv.chinacache.net:8000/live/flv/channel239"
+    },
+    {
+        "channel": "CCTV 12",
+        "url": "http://vtime1.cntv.chinacache.net:8000/live/flv/channel244"
+    },
+    {
+        "channel": "CCTV 13",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel24"
+    },
+    {
+        "channel": "CCTV 14",
+        "url": "http://vtime1.cntv.chinacache.net:8000/live/flv/channel249"
+    },
+    {
+        "channel": "CCTV 15",
+        "url": "http://vtime1.cntv.chinacache.net:8000/live/flv/channel254"
+    },
+    {
+        "channel": "CCTV5+体育赛事",
+        "url": "http://vtime1.cntv.chinacache.net:8000/live/flv/channel259"
+    },
+    {
+        "channel": "CCTV 央视台球",
+        "url": "http://vapptime1.cntv.chinacache.net:8000/live/flv/channel264"
+    },
+    {
+        "channel": "浙江卫视",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel64"
+    },
+    {
+        "channel": "江苏卫视",
+        "url": "http://vtime1.cntv.chinacache.net:8000/live/flv/channel279"
+    },
+    {
+        "channel": "深圳卫视",
+        "url": "http://vtime1.cntv.chinacache.net:8000/live/flv/channel289"
+    },
+    {
+        "channel": "安徽卫视",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel69"
+    },
+    {
+        "channel": "辽宁卫视",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel74"
+    },
+    {
+        "channel": "天津卫视",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel79"
+    },
+    {
+        "channel": "江西卫视",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel84"
+    },
+    {
+        "channel": "四川卫视",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel89"
+    },
+    {
+        "channel": "重庆卫视",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel94"
+    },
+    {
+        "channel": "黑龙江卫视",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel99"
+    },
+    {
+        "channel": "贵州卫视",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel104"
+    },
+    {
+        "channel": "湖北卫视",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel109"
+    },
+    {
+        "channel": "河南卫视",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel114"
+    },
+    {
+        "channel": "云南卫视",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel119"
+    },
+    {
+        "channel": "广西卫视",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel124"
+    },
+    {
+        "channel": "山东卫视",
+        "url": "http://vtime1.cntv.chinacache.net:8000/live/flv/channel274"
+    },
+    {
+        "channel": "河北卫视",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel129"
+    },
+    {
+        "channel": "陕西卫视",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel134"
+    },
+    {
+        "channel": "吉林卫视",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel139"
+    },
+    {
+        "channel": "广东卫视",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel144"
+    },
+    {
+        "channel": "内蒙卫视",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel149"
+    },
+    {
+        "channel": "东南卫视",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel154"
+    },
+    {
+        "channel": "青海卫视",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel159"
+    },
+    {
+        "channel": "西藏卫视",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel164"
+    },
+    {
+        "channel": "甘肃卫视",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel169"
+    },
+    {
+        "channel": "宁夏卫视",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel174"
+    },
+    {
+        "channel": "旅游卫视",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel179"
+    },
+    {
+        "channel": "北京卫视",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel184"
+    },
+    {
+        "channel": "上海卫视",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel189"
+    },
+    {
+        "channel": "山西卫视",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel194"
+    },
+    {
+        "channel": "新疆卫视",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel199"
+    },
+    {
+        "channel": "北京财经",
+        "url": "http://vtime1.cntv.chinacache.net:8000/live/flv/channel284"
+    },
+    {
+        "channel": "北京影视",
+        "url": "http://vtime1.cntv.chinacache.net:8000/live/flv/channel304"
+    },
+    {
+        "channel": "北京文艺",
+        "url": "http://vtime1.cntv.chinacache.net:8000/live/flv/channel309"
+    },
+    {
+        "channel": "北京体育",
+        "url": "http://vtime1.cntv.chinacache.net:8000/live/flv/channel314"
+    },
+    {
+        "channel": "北京生活",
+        "url": "http://vtime1.cntv.chinacache.net:8000/live/flv/channel319"
+    },
+    {
+        "channel": "北京青年",
+        "url": "http://vtime1.cntv.chinacache.net:8000/live/flv/channel324"
+    },
+    {
+        "channel": "北京科教",
+        "url": "http://vtime1.cntv.chinacache.net:8000/live/flv/channel329"
+    },
+    {
+        "channel": "北京新闻",
+        "url": "http://vtime1.cntv.chinacache.net:8000/live/flv/channel334"
+    },
+    {
+        "channel": "熊猫频道",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel51"
+    },
+    {
+        "channel": "熊猫频道",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel52"
+    },
+    {
+        "channel": "熊猫频道",
+        "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel53"
+    }
+]
