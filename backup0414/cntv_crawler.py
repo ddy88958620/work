@@ -25,7 +25,7 @@ def check(checkurl):
         else:
             url = checkurl
 
-        if result = True:
+        if result == True:
             return url
 
     return url

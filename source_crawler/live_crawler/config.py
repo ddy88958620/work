@@ -4,9 +4,10 @@
 dbconfig = {
     "host": "localhost",
     "user": "root",
-    "passwd": "moretv",
+    "passwd": "929263",
+    # "passwd": "moretv",
     # 数据库名
-    "dbname": "moretv_live",
+    "dbname": "source",
     "port": 3306,
     "charset": "utf8",
     "tbname": "channel"

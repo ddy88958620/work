@@ -20,6 +20,8 @@ class HandleSrc:
             self._update(src_list, "cntv_hls", "hls")
             self._update(src_list, "cntv_flv", "flv")
             self.conn.close()
+        if site == "sohu":
+            self._update(src_list, "sohu", "hls")
         else:
             self._update(src_list, site, "url")
             self.conn.close()
@@ -32,6 +34,5 @@ class HandleSrc:
             if flag in src:
                 params = (src["code"], site, src[flag])
                 cursor.execute(query, params)
-                print params
             else:
                 continue

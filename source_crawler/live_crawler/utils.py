@@ -7,7 +7,6 @@ sys.setdefaultencoding("utf-8")
 
 import hashlib
 import urllib2
-import urllib
 import re
 import json
 
@@ -27,11 +26,12 @@ def matchall(str, pattern):
     m_list = re.findall(pattern, str)
     return m_list if m_list else None
 
-def get_json(str, pattern=None):
+def get_json(url, pattern=None, headers=None, data=None):
+    js_string = get_html(url, headers, data)
     if pattern:
-        js = json.loads(match(str, pattern))
+        js = json.loads(match(js_string, pattern))
     else:
-        js = json.loads(str)
+        js = json.loads(js_string)
     return js
 
 
