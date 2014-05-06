@@ -5,26 +5,10 @@ import commands
 import sys
 import utils
 import os
-import urllib2
-import config
-import MySQLdb
-import json
 import live_probe
 
 reload(sys)
 sys.setdefaultencoding('utf8')
-
-mtv_api = "http://vod.moretv.com.cn/Service/findChannelGroup?ver=2.1&areaCode=310100&ispCode=dianxin"
-
-# def get_resolution(pattern, url):
-#     result = commands.getoutput("/mnt/hgfs/Work/ffmpeg -i %s" % url)
-#     print result
-#     resolution = re.findall(pattern, result)
-#     if resolution:
-#         print resolution[0]
-#         return resolution[0]
-#     else:
-#         return False
 
 
 def getCodes():
@@ -36,7 +20,7 @@ def getCodes():
         code_list.append(c[0])
     return code_list
 
-def getSrcLIst(code):
+def getSrcList(code):
     query = "SELECT (site, url) FROM mtv_source WHERE `code` = %s and status = 1"
     params = code
     s = utils.Sql()
@@ -86,27 +70,46 @@ def selectBestUrl(code, src_list):
             return real_url
 
 
-def screenshot(url, pname):
+def snapshot(url, pname):
     pic_name = "./tmp/"+pname
-    command = "./ffmpeg -i '%s' -f image2 -ss 1 -s '250x180' -vframes 1 '%s' -y" % (url, pic_name)
-    status = commands.getoutput(command)
+    cmd = "./ffmpeg -i '%s' -f image2 -ss 1 -s '250x180' -vframes 1 '%s' -y" % (url, pic_name)
+    status = commands.getoutput(cmd)
     return status
 
-def checkSnap(pname):
-    pics = os.listdir("./tmp")
-    if pname not in pics:
-        print pname, "do not exist."
+
+def ifSnapFail(src_list, pname):
+    success = False
+    for src in src_list:
+        url = src["url"]
+        snapshot(url, pname)
+        if not os.path.exists("./tmp"+pname):
+            continue
+        else:
+            success = True
+
+    if not success:
+        print pname, "can not be created!"
+
+
+def movePic():
+    cmd = "mv ./tmp/* ./"
+    status = commands.getoutput(cmd)
+    print status
 
 
 def main():
     code_list = getCodes()
     for code in code_list:
-        src_list = getSrcLIst(code)
+        src_list = getSrcList(code)
         url = selectBestUrl(code, src_list)
-        print screenshot(url, code +".jpg")
-        checkSnap(code+".jpg")
+        pname = code + ".jpg"
+        print snapshot(url, pname)
+        if not os.path.exists("./tmp"+pname):
+            ifSnapFail(src_list, pname)
         print code, "finished."
         break
+
+    movePic()
 
 if __name__ == "__main__":
     main()
