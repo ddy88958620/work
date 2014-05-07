@@ -22,10 +22,3 @@ class Sql():
         result = self.cursor.fetchall()
         return result
 
-
-def search(key, alist):
-    for item in alist:
-        if key in item:
-            return item
-    else:
-        return False

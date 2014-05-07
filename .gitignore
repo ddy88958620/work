@@ -2,5 +2,6 @@
 *.swp
 /jietu/ffmpeg
 /jietu/ffprobe
+/.idea
 *.jpg
 *.sql
