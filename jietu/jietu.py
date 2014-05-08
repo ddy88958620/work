@@ -20,6 +20,10 @@ snapshot_path = "./snapshot/"
 ffm_cmd = "./ffmpeg -i '%s' -f image2 -ss 1 -s '250x180' -vframes 1 '%s' -y"
 
 queue = Queue.Queue()
+# 有效频道数
+VALID = 0
+# 仅作为运行时计数用
+COUNT = 0
 
 # 从数据库中获取需要截图的频道code列表
 def getCodes():
@@ -94,20 +98,21 @@ def selectBestUrl(code, src_list):
 def snap(url, pname):
     pic_name = tmp_path + pname
     cmd = ffm_cmd % (url, pic_name)
-    out = subprocess.Popen(cmd, stderr=subprocess.PIPE, shell=True)
+    p = subprocess.Popen(cmd, stderr=subprocess.PIPE, shell=True)
     # 每秒检查一次ffmpeg截图进程是否完成，若10秒仍未完成杀死此进程
     for timer in range(10):
-        ret = out.poll()
+        ret = p.poll()
         if ret:
             return True
         elif ret == None and timer == 9:
-            out.kill()
+            p.terminate()
             return False
 
         time.sleep(1)
 
 # 检查截图是否成功，若不成功遍历整个url列表直至截图成功
 def snapshot(code, src_list):
+    global VALID
     url = selectBestUrl(code, src_list)
     pname = code + ".jpg"
     snap(url, pname)
@@ -131,17 +136,18 @@ def snapshot(code, src_list):
 
         if not success:
             print "------>", pname, "can not be created!"
+            VALID -= 1
 
-    print "\033[1;32;40m------>", SnapThread.count+1, code, "finished. \033[0m"
 
 # 多线程截图类
 class SnapThread(threading.Thread):
-    count = 0
     def __init__(self, queue):
         threading.Thread.__init__(self)
         self.queue = queue
 
     def run(self):
+        global VALID
+        global COUNT
         while True:
             if not self.queue.empty():
                 code = self.queue.get()
@@ -149,10 +155,12 @@ class SnapThread(threading.Thread):
                 src_list = getSrcList(code)
                 if not src_list:
                     print"------>", code, "src_list is None!"
+                    VALID -= 1
                 else:
                     snapshot(code, src_list)
                 self.queue.task_done()
-                SnapThread.count += 1
+                COUNT += 1
+                print "\033[1;32;40m------>", COUNT, code, "finished. \033[0m"
             else:
                 break
 
@@ -163,26 +171,33 @@ def movePic():
 
 
 def main():
+    global VALID
     start = time.time()
     # 每次脚本运行前清空tmp文件夹
     cmd = "rm "+tmp_path+"*"
     subprocess.Popen(cmd, shell=True)
     code_list = getCodes()
+    # 初始化有效频道数
+    VALID = len(code_list)
 
     for code in code_list:
         queue.put(code)
 
     for i in range(10):
         t = SnapThread(queue)
-        # t.setDaemon(True)
+        t.setDaemon(True)
         t.start()
 
-    # queue.join()
+    queue.join()
+
+    # 检查有效频道数跟tmp文件夹下截图数
     while True:
-        if SnapThread.count == len(code_list):
+        pic_num = len(os.listdir(tmp_path))
+        if pic_num == VALID:
             break
         else:
             time.sleep(1)
+
     movePic()
     print time.time() - start, "s"
 
