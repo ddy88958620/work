@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : crawler0
-Source Server Version : 50167
-Source Host           : 10.4.6.139:3306
-Source Database       : moretv
+Source Server         : mysql_ubuntu
+Source Server Version : 50535
+Source Host           : localhost:3306
+Source Database       : test
 
 Target Server Type    : MYSQL
-Target Server Version : 50167
+Target Server Version : 50535
 File Encoding         : 65001
 
-Date: 2014-05-05 16:28:28
+Date: 2014-05-07 17:31:16
 */
 
 SET FOREIGN_KEY_CHECKS=0;

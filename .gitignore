@@ -1,6 +1,10 @@
 *.pyc
 *.swp
-/jietu/ffmpeg
-/jietu/ffprobe
-/.idea
 *.jpg
+*.png
+*.zip
+*.rar
+ffmpeg
+ffprobe
+/eagleApp
+/.idea
