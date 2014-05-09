@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="myApp" id="ng-app" ng-cloak>
+<head>
+<meta content="text/html;charset=UTF-8" http-equiv="Content-Type" />
+<title>小鹰</title>
+<link rel="stylesheet" type="text/css" href="css/css.css" />
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
+<style>
+body{background:url(./images/login.jpg) no-repeat center 0; background-size:100% 100%;}
+</style>
+</head>
+
+<body ng-controller="login">
+	<div class="loginBox">
+    	<div class="eagle">&nbsp;</div>
+    	<div class="left">
+        	<form novalidate  name="loginForm" >
+        	<h3>欢迎来到小鹰应用管理系统</h3>
+            <ul>
+            	<li>请输入您的账户信息</li>
+            	<li>
+                	<i class="user"></i>
+                    <input type="text" name="userName" ng-pattern="userName" ng-model="user.name" placeholder="用户名" required  />
+                </li>
+                <li>
+                	<i class="passwd"></i>
+                    <input type="password" name="userPasswd" ng-pattern="userPasswd" ng-model="user.passwd" ng-keydown="enterLogon()" placeholder="密码" required  />
+                </li>
+                <li>
+                
+                	<a href="javascript:void(0);" class="loginBtn" ng-click="logon()">登录</a>
+                    <span class="loading" ng-show="loading=='show'" style="display:none;"></span>
+                </li>
+            </ul>
+            </form>
+        </div><!--end left-->
+        <div class="right">
+        	<h1>小鹰展翅</h1>
+            <div class="text">
+            	这是一群激情无限、才华洋溢的年轻人。<br>
+                代表了这个时代每个为追求梦想而奋斗的人！<br>
+                我们热爱生活，无论是去K歌还是去湖边钓龙虾…<br>
+                我们崇尚职业，无论是追求理想还是实现自我价值…
+            </div>
+        </div><!--end right-->
+    </div><!--end loginBox-->
+    <div id="all" ng-show="tipBox=='show'" style="display:none;" ng-click="closeAll()">&nbsp;</div>
+    <div class="tipBox" ng-show="tipBox=='show'" ng-class="{'show': 'show', 'hide': ''}[tipBox]" style="display:none;">
+        <div class="title" >
+            温馨提示
+            <a href="javascript:void(0)" class="close" ng-click="closeAll()">全部关闭</a>
+        </div>
+        <div class="content">
+            {{tipText}}
+        </div>
+    </div><!--end tipBox-->
+</body>
+</html>
