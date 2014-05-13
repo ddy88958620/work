@@ -18,22 +18,22 @@ app = angular.module('myApp', ['ui.nestedSortable']);
 
 <body ng-controller="overall">
 <div class="header">
-	<div class="logo">
-    	<p>当前用户</p>
-    	<p>
-        	<strong>XXXXXXXXX</strong>
+    <div class="logo">
+        <p>当前用户</p>
+        <p>
+            <strong>XXXXXXXXX</strong>
         </p>
     </div>
     <ul id="nav">
-    	<li ng-repeat="nav in navData">
-        	<a ng-href="{{nav.url}}">
-        		<p><i ng-class="nav.icon">&nbsp;</i></p>
+        <li ng-repeat="nav in navData">
+            <a ng-href="{{nav.url}}">
+                <p><i ng-class="nav.icon">&nbsp;</i></p>
                 <p>{{nav.name}}</p>
             </a>
             <ol>
-            	<li ng-repeat="subs in nav.subnav">
-                	<a ng-href="{{subs.url}}" ng-click="subs.object._click()">
-                    	{{subs.name}}
+                <li ng-repeat="subs in nav.subnav">
+                    <a ng-href="{{subs.url}}" ng-click="subs.object._click()">
+                        {{subs.name}}
                     </a>
                 </li>
             </ol>
@@ -42,11 +42,11 @@ app = angular.module('myApp', ['ui.nestedSortable']);
     <div class="right">&nbsp;</div>
 </div><!--end header-->
 <div class="layout">
-	
-	<div class="top"></div>
+    
+    <div class="top"></div>
     <div class="box">
-    	<div class="title">
-        	<div class="classifyTab">
+        <div class="title">
+            <div class="classifyTab">
                 <ul class="tabs">
                     <li ng-click="classifyLive()" ng-repeat="classify in classifyLiveData">
                         {{classify.name}}
@@ -56,30 +56,30 @@ app = angular.module('myApp', ['ui.nestedSortable']);
             <a href="javascript:void(0);" ng-click="manageClassify()" class="classify">分类管理</a>
         </div><!--end title-->
         <div class="liveBox">
-			<ul ui-nested-sortable="chaptersOptions" ng-model="pagedItems[currentPage]" id="nested-sortable-root">
-            	<li class="head">
-                	<span class="live_number">序号</span>
+            <ul ui-nested-sortable="chaptersOptions" ng-model="pagedItems[currentPage]" id="nested-sortable-root">
+                <li class="head">
+                    <span class="live_number">序号</span>
                     <span class="live_seq">类型</span>
                     <span class="live_name">频道名</span>
                     <div class="live_operat">
-                    	<a href="javascript:void(0)" ng-click="addLive()" class="btn add">增加一个台</a>
-                    	<a href="javascript:void(0)" ng-click="buildLive()" class="btn rebuild">保存拖动排序</a>
+                        <a href="javascript:void(0)" ng-click="addLive()" class="btn add">增加一个台</a>
+                        <a href="javascript:void(0)" ng-click="buildLive()" class="btn rebuild">保存拖动排序</a>
                     </div>
                 </li>
                 <li ng-repeat="lives in pagedItems[currentPage] | orderBy:sortingOrder:_reverses" ui-nested-sortable-item="">
-                	<span class="live_number">
-                    	<i>{{$index+1}}</i>
+                    <span class="live_number">
+                        <i>{{$index+1}}</i>
                     </span>
                     <span class="live_seq">
-                    	<select name="" size="1" ng-model="lives.types" ng-disabled="!lives.state" ng-options="t.id as t.name for t in classifyLiveData" ng-change="liveChoose($index)">
-                    	    <option value="" style="display:none;">请选择类型</option>
+                        <select name="" size="1" ng-model="lives.types" ng-disabled="!lives.state" ng-options="t.id as t.name for t in classifyLiveData" ng-change="liveChoose($index)">
+                            <option value="" style="display:none;">请选择类型</option>
                         </select>
                     </span>
                     <span class="live_name">
-                    	<input ng-model="lives.name" ng-disabled="!lives.state" ng-blur="updateLive()" type="text" />
+                        <input ng-model="lives.name" ng-disabled="!lives.state" ng-blur="updateLive()" type="text" />
                     </span>
                     <div class="live_operat">
-                    	<div class="toggle" ng-class="{true:'',false:'toggle-off'}[lives.state]" ng-click="turnLive()">
+                        <div class="toggle" ng-class="{true:'',false:'toggle-off'}[lives.state]" ng-click="turnLive()">
                             <label class="toggle-radio" for="toggleOption2">ON</label>
                             <label class="toggle-radio" for="toggleOption1">OFF</label>
                         </div>
@@ -104,8 +104,8 @@ app = angular.module('myApp', ['ui.nestedSortable']);
                     </div>
                     <div class="clear"></div>
                     <ol ui-nested-sortable="lecturesOptions" ng-model="lives.list" ng-class="{true:'show',false:''}[source]" ng-show="source" style="display:none;">
-                    	<li class="heads">
-                        	<span class="live_number">序号</span>
+                        <li class="heads">
+                            <span class="live_number">序号</span>
                             <span class="live_seq">类型</span>
                             <span class="live_name">频道名</span>
                             <div class="live_operat">
@@ -113,17 +113,17 @@ app = angular.module('myApp', ['ui.nestedSortable']);
                             </div>
                         </li>
                         <li ng-repeat="videos in lives.list" ui-nested-sortable-item="">
-                        	<span class="live_number">
-                            	{{$index+1}}
+                            <span class="live_number">
+                                {{$index+1}}
                             </span>
                             <span class="live_seq">
-                            	<input ng-model="videos.source" ng-disabled="!videos.state" ng-blur="updateLive()" type="text" />
+                                <input ng-model="videos.source" ng-disabled="!videos.state" ng-blur="updateLive()" type="text" />
                             </span>
                             <span class="live_name">
-                            	<input ng-model="videos.playUrl" ng-disabled="!videos.state" ng-blur="updateLive()" type="text" />
+                                <input ng-model="videos.playUrl" ng-disabled="!videos.state" ng-blur="updateLive()" type="text" />
                             </span>
                             <div class="live_operat">
-                            	<div class="toggle" ng-class="{true:'',false:'toggle-off'}[videos.state]" ng-click="turnSource()">
+                                <div class="toggle" ng-class="{true:'',false:'toggle-off'}[videos.state]" ng-click="turnSource()">
                                     <label class="toggle-radio" for="toggleOption2">ON</label>
                                     <label class="toggle-radio" for="toggleOption1">OFF</label>
                                 </div>
@@ -136,7 +136,7 @@ app = angular.module('myApp', ['ui.nestedSortable']);
             </ul>
         </div><!--end liveBox-->
         <div class="pages">
-        	<a href="javascript:void(0);" ng-class="{disabled: currentPage == 0}" ng-click="prevPage()">上一页</a>
+            <a href="javascript:void(0);" ng-class="{disabled: currentPage == 0}" ng-click="prevPage()">上一页</a>
            <span><strong>{{currentPage+1}}</strong>/{{pagedItems.length}}页</span>
             到
             <input type="text" ng-model="page" />
@@ -149,31 +149,31 @@ app = angular.module('myApp', ['ui.nestedSortable']);
 <div id="all" ng-show="allBox=='show'" style="display:none;" ng-click="closeAll()">&nbsp;</div>
 
 <div class="popupBox" ng-show="classifyBox=='show'" ng-class="{'show': 'show', 'hide': ''}[classifyBox]" style="display:none;">
-	<div class="title">
-    	分类管理
-    	<a href="javascript:void(0)" class="close" ng-click="closeAll()">关闭</a>
+    <div class="title">
+        分类管理
+        <a href="javascript:void(0)" class="close" ng-click="closeAll()">关闭</a>
     </div>
     <div class="content" ui-nested-sortable="options" ng-model="classifyLiveData" id="nested-sortable-roots">
-    	<ul class="list">
-        	<li class="titles">
-            	<span class="number">序号</span>
+        <ul class="list">
+            <li class="titles">
+                <span class="number">序号</span>
                 <span class="name">名称</span>
                 <span class="id">id号</span>
                 <span class="operate">
-                	<a href="javascript:void(0)" ng-click="classifyLiveData.push({})" class="btn add">增加分类</a>
-                	<a href="javascript:void(0)" ng-click="saveClassifyLive('drag')" class="btn rebuild">重新生成列表</a>
+                    <a href="javascript:void(0)" ng-click="classifyLiveData.push({})" class="btn add">增加分类</a>
+                    <a href="javascript:void(0)" ng-click="saveClassifyLive('drag')" class="btn rebuild">重新生成列表</a>
                 </span>
             </li>
-        	<li ui-nested-sortable-item="" ng-repeat="classify in classifyLiveData">
-            	<span class="number">{{$index+1}}</span>
+            <li ui-nested-sortable-item="" ng-repeat="classify in classifyLiveData">
+                <span class="number">{{$index+1}}</span>
                 <span class="name">
-                	<input ng-blur="saveClassifyLive()" ng-model="classify.name" type="text" />
+                    <input ng-blur="saveClassifyLive()" ng-model="classify.name" type="text" />
                 </span>
                 <span class="id">
-                	<input ng-blur="saveClassifyLive()" ng-model="classify.id" type="text" />
+                    <input ng-blur="saveClassifyLive()" ng-model="classify.id" type="text" />
                 </span>
                 <span class="operate">
-                	<a href="javascript:void(0)" ng-click="deleteClassifyLive($index)" class="btn delete">删除</a>
+                    <a href="javascript:void(0)" ng-click="deleteClassifyLive($index)" class="btn delete">删除</a>
                     <a href="javascript:void(0)" ui-nested-sortable-handle  class="btn">拖动排序</a>
                 </span>
             </li>
@@ -181,25 +181,25 @@ app = angular.module('myApp', ['ui.nestedSortable']);
     </div><!--end content-->
 </div><!--end popupBox-->
 <div class="popupBox minBox" ng-show="infoBox =='show'" ng-class="{'show': 'show', 'hide': ''}[infoBox]" style="display:none;">
-	<div class="title">
-    	个人信息
-    	<a href="javascript:void(0)" class="close" ng-click="closeAll()">关闭</a>
+    <div class="title">
+        个人信息
+        <a href="javascript:void(0)" class="close" ng-click="closeAll()">关闭</a>
     </div>
     <div class="content">
-    	<form novalidate  name="infoForm" >
-    	<ul class="form">
+        <form novalidate  name="infoForm" >
+        <ul class="form">
             <li>
-            	<label>Token</label>
+                <label>Token</label>
                 <input type="text" name="infoToken"  ng-pattern="myToken" ng-model="info.Token" required />
                 <span class="check" ng-show="infoForm.infoToken.$dirty && infoForm.infoToken.$invalid">填写有误</span>
             </li>
             <li>
-            	<label>AppID</label>
+                <label>AppID</label>
                 <input type="text" name="infoAppid" ng-pattern="myToken" ng-model="info.AppID" required />
                 <span class="check" ng-show="infoForm.infoAppid.$dirty && infoForm.infoAppid.$invalid">填写有误</span>
             </li>
-			<li>
-            	<label>Secret</label>
+            <li>
+                <label>Secret</label>
                 <input type="text" name="infoSecret" ng-pattern="myToken" ng-model="info.Scret" required />
                 <span class="check" ng-show="infoForm.infoSecret.$dirty && infoForm.infoSecret.$invalid">填写有误</span>
             </li>
@@ -211,25 +211,25 @@ app = angular.module('myApp', ['ui.nestedSortable']);
     </div><!--end content-->
 </div><!--end popupBox-->
 <div class="popupBox minBox" ng-show="passwdBox =='show'" ng-class="{'show': 'show', 'hide': ''}[passwdBox]" style="display:none;">
-	<div class="title">
-    	修改密码
-    	<a href="javascript:void(0)" class="close" ng-click="closeAll()">关闭</a>
+    <div class="title">
+        修改密码
+        <a href="javascript:void(0)" class="close" ng-click="closeAll()">关闭</a>
     </div>
     <div class="content">
-    	<form novalidate  name="passwdForm" >
-    	<ul class="form">
+        <form novalidate  name="passwdForm" >
+        <ul class="form">
             <li>
-            	<label>原密码</label>
+                <label>原密码</label>
                 <input type="password" name="passwdOld"  placeholder="长度为6-12位字母或数字"  ng-pattern="myPasswd" ng-model="passwd.old" required />
                 <span class="check" ng-show="passwdForm.passwdOld.$dirty && passwdForm.passwdOld.$invalid">填写有误</span>
             </li>
             <li>
-            	<label>新密码</label>
+                <label>新密码</label>
                 <input type="password" name="passwdNew" ng-model="passwd.news" class="newpassword" required />
                 <span class="check" ng-show="passwdForm.passwdNew.$error.newpasswd">填写有误</span>
             </li>
-			<li>
-            	<label>确认密码</label>
+            <li>
+                <label>确认密码</label>
                 <input type="password" name="passwdConfirm" ng-model="passwd.confirms" class="confirmpassword"  required />
                 <span class="check2" ng-show="passwdForm.passwdConfirm.$error.confirmpasswd">两次输入密码不一致</span>
             </li>
@@ -241,13 +241,13 @@ app = angular.module('myApp', ['ui.nestedSortable']);
     </div><!--end content-->
 </div><!--end popupBox-->
 <div class="tipBox" ng-show="tipBox=='show'" ng-class="{'show': 'show', 'hide': ''}[tipBox]" style="display:none;">
-	<div class="title">
-    	温馨提示
-    	<a href="javascript:void(0)" class="close" ng-show="tipClose=='show'" ng-click="tipBoxHide()" style="display:none;">关闭</a>
+    <div class="title">
+        温馨提示
+        <a href="javascript:void(0)" class="close" ng-show="tipClose=='show'" ng-click="tipBoxHide()" style="display:none;">关闭</a>
         <a href="javascript:void(0)" class="close" ng-show="allClose=='show'" ng-click="closeAll()" style="display:none;">全部关闭</a>
     </div>
     <div class="content">
-    	{{tipText}}
+        {{tipText}}
     </div>
 </div><!--end tipBox-->
 </body>

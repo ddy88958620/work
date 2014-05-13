@@ -21,22 +21,22 @@ app = angular.module('myApp', ['ui.nestedSortable']);
 
 <body ng-controller="overall">
 <div class="header">
-	<div class="logo">
-    	<p>当前用户</p>
-    	<p>
-        	<strong>XXXXXXXXX</strong>
+    <div class="logo">
+        <p>当前用户</p>
+        <p>
+            <strong>XXXXXXXXX</strong>
         </p>
     </div>
     <ul id="nav">
-    	<li ng-repeat="nav in navData">
-        	<a ng-href="{{nav.url}}">
-        		<p><i ng-class="nav.icon">&nbsp;</i></p>
+        <li ng-repeat="nav in navData">
+            <a ng-href="{{nav.url}}">
+                <p><i ng-class="nav.icon">&nbsp;</i></p>
                 <p>{{nav.name}}</p>
             </a>
             <ol>
-            	<li ng-repeat="subs in nav.subnav">
-                	<a ng-href="{{subs.url}}" ng-click="subs.object._click()">
-                    	{{subs.name}}
+                <li ng-repeat="subs in nav.subnav">
+                    <a ng-href="{{subs.url}}" ng-click="subs.object._click()">
+                        {{subs.name}}
                     </a>
                 </li>
             </ol>
@@ -45,11 +45,11 @@ app = angular.module('myApp', ['ui.nestedSortable']);
     <div class="right">&nbsp;</div>
 </div><!--end header-->
 <div class="layout">
-	
-	<div class="top"></div>
+    
+    <div class="top"></div>
     <div class="box">
-    	<div class="title">
-        	<div class="classifyTab">
+        <div class="title">
+            <div class="classifyTab">
                 <ul class="tabs">
                     <li ng-click="classifyList()" ng-repeat="classify in classifyData">
                         {{classify.name}}
@@ -59,8 +59,8 @@ app = angular.module('myApp', ['ui.nestedSortable']);
             <a href="javascript:void(0);" ng-click="manageClassify()" class="classify">分类管理</a>
         </div><!--end title-->
         <div class="tableBox" ui-nested-sortable="options" ng-model="pagedItems[currentPage]" id="nested-sortable-root">
-        	<table width="100%" border="0" cellspacing="0" cellpadding="0">
-            	<thead>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <thead>
                     <tr>
                         <td width="4%">序号</td>
                         <td width="11%">名称</td>
@@ -71,7 +71,7 @@ app = angular.module('myApp', ['ui.nestedSortable']);
                         <td width="10%">显示版本</td>
                         <td width="30%">简介</td>
                         <td width="17%">
-                        	<div style="width:200px">
+                            <div style="width:200px">
                                 <div class="btn add">增加信息
                                     <ul>
                                         <li  ng-click="addForList()">从列表添加</li>
@@ -96,7 +96,7 @@ app = angular.module('myApp', ['ui.nestedSortable']);
                         <td>{{list.show}}</td>
                         <td>
                         <div class="info">{{list.info.text}}
-                        	<a href="javascript:void(0)" class="btn detail" ng-click="viewDetails()">{{slideText}}</a>
+                            <a href="javascript:void(0)" class="btn detail" ng-click="viewDetails()">{{slideText}}</a>
                         </div>
                         </td>
                         <td>
@@ -104,7 +104,7 @@ app = angular.module('myApp', ['ui.nestedSortable']);
                             <a href="javascript:void(0)" ng-click="deleteShow()" class="btn delete">删除</a>
                             <a href="javascript:void(0)" ui-nested-sortable-handle class="btn">拖动排序</a>
                             <div class="sure">
-                            	<div class="deleteBox" ng-show="deleteBox=='show'" ng-class="{'show': 'show', 'hide': ''}[deleteBox]" style="display:none;">
+                                <div class="deleteBox" ng-show="deleteBox=='show'" ng-class="{'show': 'show', 'hide': ''}[deleteBox]" style="display:none;">
                                     <div class="title">
                                         温馨提示
                                         <a href="javascript:void(0)" class="close" ng-click="deleteBoxHide()">关闭</a>
@@ -112,8 +112,8 @@ app = angular.module('myApp', ['ui.nestedSortable']);
                                     <div class="content">
                                         您确定要删除这条信息吗？
                                         <p>
-                                        	<a href="javascript:void(0)" ng-click="deleteList($index)" class="btn edit">确定</a>
-                            				<a href="javascript:void(0)" ng-click="deleteBoxHide()" class="btn delete">取消</a>
+                                            <a href="javascript:void(0)" ng-click="deleteList($index)" class="btn edit">确定</a>
+                                            <a href="javascript:void(0)" ng-click="deleteBoxHide()" class="btn delete">取消</a>
                                         </p>
                                     </div>
                                 </div><!--end tipBox-->
@@ -121,14 +121,14 @@ app = angular.module('myApp', ['ui.nestedSortable']);
                         </td>
                     </tr>
                     <tr ng-show="details" ng-class="{true: 'show', false: ''}[details]" style="display:none;">
-                    	<td colspan="9">
-                        	<div class="infoBox">
-                            	<ul class="tab">
-                                	<li class="on">简介</li>
+                        <td colspan="9">
+                            <div class="infoBox">
+                                <ul class="tab">
+                                    <li class="on">简介</li>
                                     <li>历史版本</li>
                                 </ul>
                                 <div class="con">
-                                	{{list.info.text}}
+                                    {{list.info.text}}
                                 <div class="picShow" id="show{{$index}}" ng-show="list.info.pic">
                                     <ul>
                                         <li ng-repeat="imgs in list.info.pic">
@@ -143,18 +143,18 @@ app = angular.module('myApp', ['ui.nestedSortable']);
 
                                 </div><!--end con-->
                                 <div class="con" style="display:none;">
-                                	<div class="version">
-                                    	<ul>
-                                        	<li class="title">
-                                            	<span>版本号</span>
+                                    <div class="version">
+                                        <ul>
+                                            <li class="title">
+                                                <span>版本号</span>
                                                 <span>更新时间</span>
                                                 <span><a href="javascript:void(0)" ng-click="addHistory($index)" class="btn edit">增加历史</a></span>
                                             </li>
                                             <li ng-repeat="items in list.history">
-                                            	<span>{{items.version}}</span>
+                                                <span>{{items.version}}</span>
                                                 <span>{{items.time}}</span>
                                                 <span><a href="javascript:void(0)"  ng-click="updateHistory($parent.$index,$index)"  class="btn download">编辑</a>
-                                                	  <a href="javascript:void(0)"  ng-click="deleteHistory($parent.$index,$index)" class="btn delete">删除</a>
+                                                      <a href="javascript:void(0)"  ng-click="deleteHistory($parent.$index,$index)" class="btn delete">删除</a>
                                                 </span>
                                             </li>
                                         </ul>
@@ -163,12 +163,12 @@ app = angular.module('myApp', ['ui.nestedSortable']);
                             </div><!--end infoBox-->
                         </td>
                     </tr>
-              	</tbody>
+                  </tbody>
             </table>
 
         </div><!--end tableBox-->
         <div class="pages">
-        	<a href="javascript:void(0);" ng-class="{disabled: currentPage == 0}" ng-click="prevPage()">上一页</a>
+            <a href="javascript:void(0);" ng-class="{disabled: currentPage == 0}" ng-click="prevPage()">上一页</a>
            <span><strong>{{currentPage+1}}</strong>/{{pagedItems.length}}页</span>
             到
             <input type="text" ng-model="page" />
@@ -180,54 +180,54 @@ app = angular.module('myApp', ['ui.nestedSortable']);
 </div><!--end layout-->
 <div id="all" ng-show="allBox=='show'" style="display:none;" ng-click="closeAll()">&nbsp;</div>
 <div class="popupBox" ng-show="popupBox =='show'" ng-style="{'top':_top}" ng-class="{'show': 'show', 'hide': ''}[popupBox]" style="display:none;">
-	<div class="title">
-    	修改内容
-    	<a href="javascript:void(0)" class="close" ng-click="closeAll()">关闭</a>
+    <div class="title">
+        修改内容
+        <a href="javascript:void(0)" class="close" ng-click="closeAll()">关闭</a>
     </div>
     <div class="content">
-    	<form novalidate  name="appForm" >
-    	<ul class="form">
-        	<li>
-            	<label>应用名称</label>
+        <form novalidate  name="appForm" >
+        <ul class="form">
+            <li>
+                <label>应用名称</label>
                 <input type="text" name="appName" ng-model="app.name" required />
                 <span class="check" ng-show="appForm.appName.$dirty && appForm.appName.$invalid">填写有误</span>
             </li>
             <li>
-            	<label>评分</label>
+                <label>评分</label>
                 <input type="text" name="appScore" ng-pattern="/^([0-9]*\.)?[0-9]{0,2}$/" ng-model="app.score" required />
                 <span class="check" ng-show="appForm.appScore.$dirty && appForm.appScore.$invalid">填写有误</span>
             </li>
             <li>
-            	<label>上架时间</label>
+                <label>上架时间</label>
                 <input type="text" name="appTime" ng-model="app.time" onClick="WdatePicker()" my-datepicker required />
                 <span class="check" ng-show="appForm.appName.$dirty && appForm.appName.$invalid">填写有误</span>
             </li>
             <li>
-            	<label>最新版本</label>
+                <label>最新版本</label>
                 <input type="text" name="appVersion" ng-model="app.version" required />
                 <span class="check" ng-show="appForm.appName.$dirty && appForm.appName.$invalid">填写有误</span>
             </li>
             <li>
-            	<label>显示版本</label>
+                <label>显示版本</label>
                 <input type="text" name="appShow" ng-model="app.show" required />
                 <span class="check" ng-show="appForm.appShow.$dirty && appForm.appShow.$invalid">填写有误</span>
             </li>
              <li class="uploads">
-            	<label>应用文件</label>
+                <label>应用文件</label>
                 <div class="uploadBtn">
                     <input type="file" ng-model="app.urls" id="uploadifyApp"  upload-uploadify />
                     <input type="hidden" placeholder="应用地址" name="appUrl" ng-model="app.url" />
                 </div>
             </li>
             <li  class="uploads">
-            	<label>上传logo</label>
+                <label>上传logo</label>
                 <div class="uploadBtn">
-               		<input type="file" ng-model="app.logos" id="uploadifyLogo"  upload-uploadify />
+                       <input type="file" ng-model="app.logos" id="uploadifyLogo"  upload-uploadify />
                 </div>
                 <div class="preview">
-                	<ol>
+                    <ol>
                         <li ng-show="app.logo">
-                        	<a href="javascript:void(0)" class="btn delete" ng-click="app.logo=''">删除</a>
+                            <a href="javascript:void(0)" class="btn delete" ng-click="app.logo=''">删除</a>
                             <i>&nbsp;</i>
                             <span>{{app.logo}}</span>
                             <div class="bar">
@@ -238,15 +238,15 @@ app = angular.module('myApp', ['ui.nestedSortable']);
                 </div>
             </li>
             <li  class="full">
-            	<label>应用截图</label>
+                <label>应用截图</label>
                 <div class="uploadBtn">
-                	<input type="file" ng-model="app.info.pics" id="uploadifyPic"  upload-uploadify />
+                    <input type="file" ng-model="app.info.pics" id="uploadifyPic"  upload-uploadify />
                 </div>
                 <div class="preview">
-                	<ol>
-                    	
+                    <ol>
+                        
                         <li ng-repeat="imgs in app.info.pic">
-                        	<a href="javascript:void(0)" class="btn delete" ng-click="app.info.pic.splice($index,1)">删除</a>
+                            <a href="javascript:void(0)" class="btn delete" ng-click="app.info.pic.splice($index,1)">删除</a>
                             <i>&nbsp;</i>
                             <span>{{imgs}}</span>
                             <div class="bar">
@@ -257,7 +257,7 @@ app = angular.module('myApp', ['ui.nestedSortable']);
                 </div>
             </li>
             <li class="full">
-            	<label>简介</label>
+                <label>简介</label>
                 <textarea cols="" rows="" name="appInfo" ng-model="app.info.text" ng-maxlength="1000"></textarea>
                 <p>还可以输入<span class="red"> {{1000-app.info.text.length}} </span>字</p>
             </li>
@@ -269,19 +269,19 @@ app = angular.module('myApp', ['ui.nestedSortable']);
     </div><!--end content-->
 </div><!--end popupBox-->
 <div class="popupBox minBox" ng-show="listBox =='show'" ng-class="{'show': 'show', 'hide': ''}[listBox]" ng-style="{'top':_topCh}" style="display:none;">
-	<div class="title">
-    	从列表中增加
-    	<a href="javascript:void(0)" class="close" ng-click="closeAll()">关闭</a>
+    <div class="title">
+        从列表中增加
+        <a href="javascript:void(0)" class="close" ng-click="closeAll()">关闭</a>
     </div>
     <div class="content">
     <form novalidate  name="chooseForm" >
-    	<ul class="form">
+        <ul class="form">
             <li>
-            	<label>搜索应用</label>
+                <label>搜索应用</label>
                 <input type="text" class="search"  name="appSearch" placeholder="请输入应用名称" ng-model="searchString.name"  />
             </li>
             <li>
-            	<div class="nameList" id="nameList">
+                <div class="nameList" id="nameList">
                     <label ng-repeat="list in chooseData | filter:searchString" ng-click="appChoose($index)">
                         <i ng-class="{true:'on',false:''}[list.appName]"></i>
                         {{list.name}}
@@ -296,28 +296,28 @@ app = angular.module('myApp', ['ui.nestedSortable']);
     </div><!--end content-->
 </div><!--end popupBox-->
 <div class="popupBox minBox" ng-show="historyBox =='show'" ng-class="{'show': 'show', 'hide': ''}[historyBox]" style="display:none;">
-	<div class="title">
-    	历史版本
-    	<a href="javascript:void(0)" class="close" ng-click="closeAll()">关闭</a>
+    <div class="title">
+        历史版本
+        <a href="javascript:void(0)" class="close" ng-click="closeAll()">关闭</a>
     </div>
     <div class="content">
-    	<form novalidate  name="historyForm" >
-    	<ul class="form">
+        <form novalidate  name="historyForm" >
+        <ul class="form">
             <li>
-            	<label>版本号</label>
+                <label>版本号</label>
                 <input type="text" name="historyVersion" ng-model="history.version" required />
                 <span class="check" ng-show="historyForm.historyVersion.$dirty && historyForm.historyVersion.$invalid">填写有误</span>
             </li>
             <li>
-            	<label>更新时间</label>
+                <label>更新时间</label>
                 <input type="text" name="historyTime" ng-model="history.time" onClick="WdatePicker()" my-datepicker required />
                 <span class="check" ng-show="historyForm.historyTime.$dirty && historyForm.historyTime.$invalid">填写有误</span>
             </li>
             <li class="uploads">
-            	<label>上传应用</label>
+                <label>上传应用</label>
                 <div class="uploadBtn">
-                	<input type="file" ng-model="history.urls" id="historyApp"  upload-uploadify />
-                	<input type="hidden" name="historyUrl" ng-model="history.url" />
+                    <input type="file" ng-model="history.urls" id="historyApp"  upload-uploadify />
+                    <input type="hidden" name="historyUrl" ng-model="history.url" />
                 </div>
             </li>
             <li class="button">
@@ -328,31 +328,31 @@ app = angular.module('myApp', ['ui.nestedSortable']);
     </div><!--end content-->
 </div><!--end popupBox-->
 <div class="popupBox" ng-show="classifyBox=='show'" ng-class="{'show': 'show', 'hide': ''}[classifyBox]" style="display:none;">
-	<div class="title">
-    	分类管理
-    	<a href="javascript:void(0)" class="close" ng-click="closeAll()">关闭</a>
+    <div class="title">
+        分类管理
+        <a href="javascript:void(0)" class="close" ng-click="closeAll()">关闭</a>
     </div>
     <div class="content" ui-nested-sortable="options" ng-model="classifyData" id="nested-sortable-roots">
-    	<ul class="list">
-        	<li class="titles">
-            	<span class="number">序号</span>
+        <ul class="list">
+            <li class="titles">
+                <span class="number">序号</span>
                 <span class="name">名称</span>
                 <span class="id">id号</span>
                 <span class="operate">
-                	<a href="javascript:void(0)" ng-click="classifyData.push({})" class="btn add">增加分类</a>
-                	<a href="javascript:void(0)" ng-click="saveClassify('drag')" class="btn rebuild">保存拖动排序</a>
+                    <a href="javascript:void(0)" ng-click="classifyData.push({})" class="btn add">增加分类</a>
+                    <a href="javascript:void(0)" ng-click="saveClassify('drag')" class="btn rebuild">保存拖动排序</a>
                 </span>
             </li>
-        	<li ui-nested-sortable-item="" ng-repeat="classify in classifyData">
-            	<span class="number">{{$index+1}}</span>
+            <li ui-nested-sortable-item="" ng-repeat="classify in classifyData">
+                <span class="number">{{$index+1}}</span>
                 <span class="name">
-                	<input ng-blur="saveClassify()" ng-model="classify.name" type="text" />
+                    <input ng-blur="saveClassify()" ng-model="classify.name" type="text" />
                 </span>
                 <span class="id">
-                	<input ng-blur="saveClassify()" ng-model="classify.id" type="text" />
+                    <input ng-blur="saveClassify()" ng-model="classify.id" type="text" />
                 </span>
                 <span class="operate">
-                	<a href="javascript:void(0)" ng-click="deleteClassify($index)" class="btn delete">删除</a>
+                    <a href="javascript:void(0)" ng-click="deleteClassify($index)" class="btn delete">删除</a>
                     <a href="javascript:void(0)" ui-nested-sortable-handle  class="btn">拖动排序</a>
                 </span>
             </li>
@@ -360,25 +360,25 @@ app = angular.module('myApp', ['ui.nestedSortable']);
     </div><!--end content-->
 </div><!--end popupBox-->
 <div class="popupBox minBox" ng-show="infoBox =='show'" ng-class="{'show': 'show', 'hide': ''}[infoBox]" style="display:none;">
-	<div class="title">
-    	个人信息
-    	<a href="javascript:void(0)" class="close" ng-click="closeAll()">关闭</a>
+    <div class="title">
+        个人信息
+        <a href="javascript:void(0)" class="close" ng-click="closeAll()">关闭</a>
     </div>
     <div class="content">
-    	<form novalidate  name="infoForm" >
-    	<ul class="form">
+        <form novalidate  name="infoForm" >
+        <ul class="form">
             <li>
-            	<label>Token</label>
+                <label>Token</label>
                 <input type="text" name="infoToken"  ng-pattern="myToken" ng-model="info.Token" required />
                 <span class="check" ng-show="infoForm.infoToken.$dirty && infoForm.infoToken.$invalid">填写有误</span>
             </li>
             <li>
-            	<label>AppID</label>
+                <label>AppID</label>
                 <input type="text" name="infoAppid" ng-pattern="myToken" ng-model="info.AppID" required />
                 <span class="check" ng-show="infoForm.infoAppid.$dirty && infoForm.infoAppid.$invalid">填写有误</span>
             </li>
-			<li>
-            	<label>Secret</label>
+            <li>
+                <label>Secret</label>
                 <input type="text" name="infoSecret" ng-pattern="myToken" ng-model="info.Scret" required />
                 <span class="check" ng-show="infoForm.infoSecret.$dirty && infoForm.infoSecret.$invalid">填写有误</span>
             </li>
@@ -390,25 +390,25 @@ app = angular.module('myApp', ['ui.nestedSortable']);
     </div><!--end content-->
 </div><!--end popupBox-->
 <div class="popupBox minBox" ng-show="passwdBox =='show'" ng-class="{'show': 'show', 'hide': ''}[passwdBox]" style="display:none;">
-	<div class="title">
-    	修改密码
-    	<a href="javascript:void(0)" class="close" ng-click="closeAll()">关闭</a>
+    <div class="title">
+        修改密码
+        <a href="javascript:void(0)" class="close" ng-click="closeAll()">关闭</a>
     </div>
     <div class="content">
-    	<form novalidate  name="passwdForm" >
-    	<ul class="form">
+        <form novalidate  name="passwdForm" >
+        <ul class="form">
             <li>
-            	<label>原密码</label>
+                <label>原密码</label>
                 <input type="password" name="passwdOld"  placeholder="长度为6-12位字母或数字"  ng-pattern="myPasswd" ng-model="passwd.old" required />
                 <span class="check" ng-show="passwdForm.passwdOld.$dirty && passwdForm.passwdOld.$invalid">填写有误</span>
             </li>
             <li>
-            	<label>新密码</label>
+                <label>新密码</label>
                 <input type="password" name="passwdNew" ng-model="passwd.news" class="newpassword" required />
                 <span class="check" ng-show="passwdForm.passwdNew.$error.newpasswd">填写有误</span>
             </li>
-			<li>
-            	<label>确认密码</label>
+            <li>
+                <label>确认密码</label>
                 <input type="password" name="passwdConfirm" ng-model="passwd.confirms" class="confirmpassword"  required />
                 <span class="check2" ng-show="passwdForm.passwdConfirm.$error.confirmpasswd">两次输入密码不一致</span>
             </li>
@@ -420,13 +420,13 @@ app = angular.module('myApp', ['ui.nestedSortable']);
     </div><!--end content-->
 </div><!--end popupBox-->
 <div class="tipBox" ng-show="tipBox=='show'" ng-class="{'show': 'show', 'hide': ''}[tipBox]" style="display:none;">
-	<div class="title">
-    	温馨提示
-    	<a href="javascript:void(0)" class="close" ng-show="tipClose=='show'" ng-click="tipBoxHide()" style="display:none;">关闭</a>
+    <div class="title">
+        温馨提示
+        <a href="javascript:void(0)" class="close" ng-show="tipClose=='show'" ng-click="tipBoxHide()" style="display:none;">关闭</a>
         <a href="javascript:void(0)" class="close" ng-show="allClose=='show'" ng-click="closeAll()" style="display:none;">全部关闭</a>
     </div>
     <div class="content">
-    	{{tipText}}
+        {{tipText}}
     </div>
 </div><!--end tipBox-->
 </body>
