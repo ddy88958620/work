@@ -1,48 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e9018c57-66ee-4d96-a9ac-7562381d66d6" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\.idea\deployment.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\.idea\eagle_test.iml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\.idea\encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\.idea\misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\.idea\modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\.idea\scopes\scope_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\.idea\vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\.idea\workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\server.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\static\css\css.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\static\css\uploadify.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\static\images\loading.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\static\js\angular.min.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\static\js\jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\static\js\jquery.uploadify.min.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\static\js\list.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\static\js\login.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\static\js\main.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\static\js\pic.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\static\js\sortable.min.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\static\js\uploadify.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\static\js\uploadify.swf" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\templates\My97DatePicker\WdatePicker.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\templates\My97DatePicker\calendar.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\templates\My97DatePicker\lang\en.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\templates\My97DatePicker\lang\zh-cn.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\templates\My97DatePicker\lang\zh-tw.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\templates\My97DatePicker\skin\WdatePicker.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\templates\My97DatePicker\skin\datePicker.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\templates\My97DatePicker\skin\default\datepicker.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\templates\My97DatePicker\skin\default\img.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\templates\My97DatePicker\skin\whyGreen\datepicker.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\templates\My97DatePicker\skin\whyGreen\img.gif" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\templates\conmmon.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\templates\index.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\templates\live.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\templates\login.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\templates\picture.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Winters\Work\eagle_test\templates\recommend.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="e9018c57-66ee-4d96-a9ac-7562381d66d6" name="Default" comment="" />
     <ignored path="Work.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -70,7 +29,7 @@
       <file leaf-file-name="server.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/eagleApp/server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="11" selection-start="1490" selection-end="1490" vertical-scroll-proportion="0.6203905" vertical-offset="726" max-vertical-offset="2662">
+            <state line="46" column="8" selection-start="1080" selection-end="1080" vertical-scroll-proportion="0.88286334" vertical-offset="198" max-vertical-offset="2662">
               <folding />
             </state>
           </provider>
@@ -864,7 +823,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/eagleApp/server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="11" selection-start="1490" selection-end="1490" vertical-scroll-proportion="0.6203905" vertical-offset="726" max-vertical-offset="2662">
+        <state line="46" column="8" selection-start="1080" selection-end="1080" vertical-scroll-proportion="0.88286334" vertical-offset="198" max-vertical-offset="2662">
           <folding />
         </state>
       </provider>
