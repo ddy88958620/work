@@ -1,9 +1,0 @@
-.Wdate{
-    border:#999 1px solid;
-    background:#fff url(date.png) no-repeat 95% center;
-}
-
-.WdateFmtErr{
-    font-weight:bold;
-    color:red;
-}
