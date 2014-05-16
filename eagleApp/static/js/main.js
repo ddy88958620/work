@@ -50,8 +50,8 @@ app.directive("uploadUploadify", function() {
             element.uploadify({
                 'method'   : 'post',
                 'auto': true,
-                'swf': opts.swf || 'js/uploadify.swf',
-                'uploader': opts.uploader || 'js/uploadify.php',//图片上传方法
+                'swf': opts.swf || './js/uploadify.swf',
+                'uploader': opts.uploader || 'static/js/uploadify.php',//图片上传方法
                 
                 'buttonText': opts.buttonText || '上传文件',
                 'width': opts.width || '100%',
@@ -66,13 +66,13 @@ app.directive("uploadUploadify", function() {
                                 ngModel.$setViewValue(data.basename);
                                 if($scope.app){
                                     $scope.app.url = 'http://www/uploads'+$scope.app.urls;
-                                    $scope.app.logo = 'uploads/'+$scope.app.logos;
+                                    $scope.app.logo = 'static/uploads/'+$scope.app.logos;
                                     if($scope.app.info){
                                         if($scope.app.info.pic){
-                                            var pics = 'uploads/'+ $scope.app.info.pics;
+                                            var pics = 'static/uploads/'+ $scope.app.info.pics;
                                             $scope.app.info.pic.push(pics);
                                         }else{
-                                            var pics = 'uploads/'+ $scope.app.info.pics;
+                                            var pics = 'static/uploads/'+ $scope.app.info.pics;
                                             picData.push(pics);
                                             $scope.app.info.pic = picData;    
                                         };
@@ -83,7 +83,7 @@ app.directive("uploadUploadify", function() {
                                     $scope.history.url = 'http://www/uploads'+$scope.history.urls;
                                 };
                                 if($scope.picData){
-                                    $scope.picture.pic = 'uploads/'+$scope.picture.pics;
+                                    $scope.picture.pic = 'static/uploads/'+$scope.picture.pics;
                                 };
                             });
                             
@@ -1065,8 +1065,24 @@ appHistory = function($scope,$http,$rootScope){*/
     ];
     $scope.classifyPic = function(){ 
         classifyPicType = this.classify.id;
-        var content = eval(classifyPicType);
-        $scope.picData = content;
+        $http({
+                url: PIC_LIST_URL+'?data=' + classifyPicType,
+                method: "GET"
+               }).success(function (data, status, headers, config) {
+                if(data.status==200){
+                    $scope.picData = data.picData;
+                }
+                else if(data.status==500){
+                    $rootScope.tipBox = "show";
+                    $rootScope.tipText="提交失败，请重试。";
+                    $rootScope.tipClose = 'show';
+                    $rootScope.allClose = 'hide';
+                };
+                
+            }).error(function (data, status, headers, config) {
+                console.log(status);
+           });    
+        
     };
     ////配图开关
     $scope.turnPic = function(){

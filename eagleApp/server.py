@@ -7,8 +7,10 @@ sys.setdefaultencoding("utf-8")
 import web
 import json
 import config
+import hashlib
 
 # web.config.debug = False
+LIVE_IMG_DOMIN = "http://eagleapp.qiniudn.com"
 
 render = web.template.render("templates/")
 
@@ -18,7 +20,21 @@ urls = (
     "/picture.html", "picture",
     "/live.html", "live",
     "/recommend.html", "recommend",
-    "/logout", "logout"
+    "/logout", "logout",
+    "/listdata", "listdata",    # 应用列表
+    "/app_edit", "appEdit",
+    "/app_delete", "appDelete",
+    "/app_classify", "appClassify",
+    "/recommend_edit", "recommendEdit",
+    "/recommend_delete", "recommendDelete",
+    "/recommend_build", "recommendBuild",
+    "/live_edit", "liveEdit",
+    "/live_delete", "liveDelete",
+    "/live_build", "liveBuild",
+    "/live_classify", "liveClassify",
+    "/pic_list", "picList",
+    "/start_pic", "startPic",   # 启动页图片接口
+    "/load_pic", "loadPic", # 加载页图片接口
 )
 
 login_url = "/login"
@@ -40,6 +56,7 @@ if web.config.get('_session') is None:
 else:
     session = web.config._session
 
+db = web.database(dbn="mysql", db=config.db, user=config.user, pw=config.passwd)
 
 def logged():
     if session.loggedin == True:
@@ -48,14 +65,10 @@ def logged():
         return False
 
 def existed(user, pw):
-    # query = "SELECT * FROM users WHERE uname=%s and passwd=%s"
-    db = web.database(dbn="mysql", db=config.db, user=config.user, pw=config.passwd)
-    user_vars = {"user": user, "pw": pw}
-    exist = db.select("users", vars=user_vars, where="uname=$user and passwd=$pw", _test=True)
-    if exist:
-        return True
-    else:
-        return False
+    pwhash = hashlib.md5(pw).hexdigest()
+    user_vars = {"user": user, "pw": pwhash}
+    exist = db.select("users", vars=user_vars, where="uname=$user and passwd=$pw")
+    return exist
 
 class login:
     def GET(self):
@@ -68,12 +81,15 @@ class login:
         data = json.loads(web.data())
         user = data["user"]
         pw = data["passwd"]
-        if existed(user, pw):
+        exist = existed(user, pw)
+        if exist:
             session.loggedin = True
             session.user = user
-            data = json.dumps({"status": "200"})
+            # web.ctx.status = 200
+            data = json.dumps({"status": 200})
         else:
-            data = json.dumps({"status": "403"})
+            # web.ctx.status = 403
+            data = json.dumps({"status": 403})
 
         return data
 
@@ -110,6 +126,43 @@ class logout:
     def GET(self):
         session.kill()
         raise web.seeother(login_url)
+
+class listdata():
+    def GET(self):
+        #score, show, pic
+        what = "name, icon, publishdate, version, download, fullinfo"
+
+class appEdit():
+    def POST(self):
+        data = web.data()
+
+class picList():
+    def __init__(self):
+        self.tname = "live_starting"
+
+    def GET(self):
+        what = "url, time, status, weight"
+        results = db.select(self.tname, what=what)
+        data = {}
+        data["status"] = 200
+        data["picData"] = []
+        for i in results:
+            item = {}
+            item["pic"] = LIVE_IMG_DOMIN + i.url
+            item["time"] = i.time.strftime("%Y-%m-%d %H:%M:%S")
+            item["state"] = i.status
+            item["weight"] = i.weight
+            data["picData"].append(item)
+        data = json.dumps(data)
+        return data
+
+# class loadPic():
+#     def GET(self):
+#         pic = startPic()
+#         pic.tname = "live_loading"
+#         data = pic.GET()
+#         return data
+
 
 if __name__ == "__main__":
     app.run()
