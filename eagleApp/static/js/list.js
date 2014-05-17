@@ -483,43 +483,43 @@ other =[
         ]
     }
 ];
-starting=[
-    {
-        pic:'static/img/banner_01.png',
-        time:'2014-03-22 15:23:14',
-        state:true,
-        weight:1
-    },
-    {
-        pic:'static/img/banner_02.png',
-        time:'2014-03-22 15:23:14',
-        state:true,
-        weight:1
-    },
-    {
-        pic:'static/img/banner_03.png',
-        time:'2014-03-22 15:23:14',
-        state:true,
-        weight:1
-    }
-];
-loading=[
-    {
-        pic:'static/img/pic_01.jpg',
-        time:'2014-03-22 15:23:14',
-        state:true,
-        weight:2
-    },
-    {
-        pic:'static/img/pic_02.jpg',
-        time:'2014-03-22 15:23:14',
-        state:true,
-        weight:3
-    },
-    {
-        pic:'static/img/pic_03.jpg',
-        time:'2014-03-22 15:23:14',
-        state:true,
-        weight:4
-    }
-];
+//starting=[
+//    {
+//        pic:'static/img/banner_01.png',
+//        time:'2014-03-22 15:23:14',
+//        state:true,
+//        weight:1
+//    },
+//    {
+//        pic:'static/img/banner_02.png',
+//        time:'2014-03-22 15:23:14',
+//        state:true,
+//        weight:1
+//    },
+//    {
+//        pic:'static/img/banner_03.png',
+//        time:'2014-03-22 15:23:14',
+//        state:true,
+//        weight:1
+//    }
+//];
+//loading=[
+//    {
+//        pic:'static/img/pic_01.jpg',
+//        time:'2014-03-22 15:23:14',
+//        state:true,
+//        weight:2
+//    },
+//    {
+//        pic:'static/img/pic_02.jpg',
+//        time:'2014-03-22 15:23:14',
+//        state:true,
+//        weight:3
+//    },
+//    {
+//        pic:'static/img/pic_03.jpg',
+//        time:'2014-03-22 15:23:14',
+//        state:true,
+//        weight:4
+//    }
+//];

@@ -14,23 +14,22 @@
 <script type="text/javascript">
 getData = function($$scope,$$http){
     $$http({
-                url: PIC_LIST_URL,
-                method: "GET"
-               }).success(function (data, status, headers, config) {
-                if(data.status==200){
-                    $$scope.picData = data.picData;
-                }
-                else if(data.status==500){
-                    $$rootScope.tipBox = "show";
-                    $$rootScope.tipText="提交失败，请重试。";
-                    $$rootScope.tipClose = 'show';
-                    $$rootScope.allClose = 'hide';
-                };
-                
-            }).error(function (data, status, headers, config) {
-                console.log(status);
-           });    
-};    
+        url: PIC_LIST_URL,
+        method: "GET"
+    }).success(function (data, status, headers, config) {
+        if(data.status==200){
+            $$scope.picData = data.picData;
+        }
+        else if(data.status==500){
+            $$rootScope.tipBox = "show";
+            $$rootScope.tipText="提交失败，请重试。";
+            $$rootScope.tipClose = 'show';
+            $$rootScope.allClose = 'hide';
+        }
+    }).error(function (data, status, headers, config) {
+        console.log(status);
+    });
+};
 </script>
 </head>
 

@@ -34,8 +34,8 @@ urls = (
     "/live_build", "liveBuild",
     "/live_classify", "liveClassify",
     "/pic_list", "picList",
-    "/start_pic", "startPic",   # 启动页图片接口
-    "/load_pic", "loadPic", # 加载页图片接口
+    # "/start_pic", "startPic",   # 启动页图片接口
+    # "/load_pic", "loadPic", # 加载页图片接口
 )
 
 login_url = "/login"
@@ -139,11 +139,19 @@ class appEdit():
 
 class picList():
     def __init__(self):
-        self.tname = "live_starting"
+        self.start_tab = "live_starting"
+        self.load_tab = "live_loading"
 
-    def GET(self, ):
+    def GET(self):
+        data_type = web.input()
+        print data_type
         what = "url, time, status, weight"
-        results = db.select(self.tname, what=what)
+
+        if data_type.data == "starting":
+            results = db.select(self.start_tab, what=what)
+        elif data_type.data == "loading":
+            results = db.select(self.load_tab, what=what)
+
         data = {}
         data["status"] = 200
         data["picData"] = []
@@ -158,15 +166,8 @@ class picList():
         return data
 
     def POST(self):
-        pass
-
-# class loadPic():
-#     def GET(self):
-#         pic = startPic()
-#         pic.tname = "live_loading"
-#         data = pic.GET()
-#         return data
-
+        data = web.data()
+        print data
 
 if __name__ == "__main__":
     app.run()
