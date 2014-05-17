@@ -1,8 +1,10 @@
-# import live_probe
 import subprocess
-import time
 import sys
+import live_probe
 
-# url = live_probe.URLTranslater("http://zb.v.qq.com:1863/?progid=974433428").realURL()
-# print url
-print sys.path[0]
+cmd = "./ffmpeg -i %s -f image2 -ss 1 -s 250x180 -vframes 1 test.jpg -y"
+url = live_probe.URLTranslater(sys.argv[1]).realURL()
+print "****", url, "\n\n"
+cmd = cmd % url
+cmd_list = cmd.split(" ")
+p = subprocess.Popen(cmd_list)

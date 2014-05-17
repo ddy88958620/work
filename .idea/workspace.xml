@@ -1,7 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e9018c57-66ee-4d96-a9ac-7562381d66d6" name="Default" comment="" />
+    <list default="true" id="e9018c57-66ee-4d96-a9ac-7562381d66d6" name="Default" comment="">
+      <change type="DELETED" beforePath="D:\Work\MoreTV\eagleApp\sessions\e0115cbf377fdcfd89ff5c0da402fce3809e9249" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/anhui.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/anhui.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/btv1.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/btv1.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/cctv1.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/cctv1.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/cctv10.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/cctv10.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/cctv11.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/cctv11.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/cctv12.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/cctv12.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/cctv13.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/cctv13.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/cctv15.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/cctv15.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/cctv2.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/cctv2.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/cctv3.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/cctv3.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/cctv4.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/cctv4.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/cctv5.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/cctv5.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/cctv6.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/cctv6.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/cctv7.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/cctv7.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/cctv8.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/cctv8.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/cctvchild.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/cctvchild.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/cctvjilu.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/cctvjilu.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/chongqing.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/chongqing.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/dongfang.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/dongfang.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/dongnan.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/dongnan.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/gansu.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/gansu.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/guangdong.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/guangdong.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/guangxi.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/guangxi.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/guizhou.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/guizhou.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/hebei.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/hebei.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/heilongjiang.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/heilongjiang.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/henan.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/henan.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/hubei.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/hubei.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/hunan.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/hunan.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/jiangsu.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/jiangsu.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/jiangxi.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/jiangxi.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/jilin.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/jilin.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/liaoning.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/liaoning.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/neimenggu.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/neimenggu.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/ningxia.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/ningxia.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/qinghai.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/qinghai.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/shan1xi.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/shan1xi.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/shan3xi.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/shan3xi.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/shandong.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/shandong.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/shenzhen.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/shenzhen.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/sichuan.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/sichuan.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/tianjin.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/tianjin.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/travel.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/travel.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/xiamen.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/xiamen.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/xinjiang.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/xinjiang.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/xizang.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/xizang.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/yunnan.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/yunnan.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/snapshot/zhejiang.jpg" afterPath="$PROJECT_DIR$/jietu/snapshot/zhejiang.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Work.iml" afterPath="$PROJECT_DIR$/.idea/Work.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eagleApp/.idea/eagle_test.iml" afterPath="$PROJECT_DIR$/eagleApp/.idea/eagle_test.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/jietu.py" afterPath="$PROJECT_DIR$/jietu/jietu.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/live_probe.py" afterPath="$PROJECT_DIR$/jietu/live_probe.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eagleApp/.idea/misc.xml" afterPath="$PROJECT_DIR$/eagleApp/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eagleApp/server.py" afterPath="$PROJECT_DIR$/eagleApp/server.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jietu/test.py" afterPath="$PROJECT_DIR$/jietu/test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eagleApp/.idea/workspace.xml" afterPath="$PROJECT_DIR$/eagleApp/.idea/workspace.xml" />
+    </list>
     <ignored path="Work.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,107 +85,7 @@
     <favorites_list name="Work" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="server.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/eagleApp/server.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="8" selection-start="1080" selection-end="1080" vertical-scroll-proportion="0.88286334" vertical-offset="198" max-vertical-offset="2662">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="session.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://D:/Program Files/Python27/Lib/site-packages/web/session.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="12" selection-start="1769" selection-end="1769" vertical-scroll-proportion="0.0" vertical-offset="181" max-vertical-offset="7964">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="db.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://D:/Program Files/Python27/Lib/site-packages/web/db.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="679" column="36" selection-start="21121" selection-end="21121" vertical-scroll-proportion="0.0" vertical-offset="14256" max-vertical-offset="27346">
-              <folding>
-                <marker date="1340687996000" expanded="true" signature="24071:24122" placeholder="INSERT INTO ..." />
-                <marker date="1340687996000" expanded="true" signature="25060:25089" placeholder="INSERT INTO ..." />
-                <marker date="1340687996000" expanded="true" signature="26509:26535" placeholder="INSERT INTO ..." />
-                <marker date="1340687996000" expanded="true" signature="29183:29195" placeholder="DELETE FROM ..." />
-                <marker date="1340687996000" expanded="true" signature="31151:31205" placeholder="SELECT c.rel..pg_class..." />
-                <marker date="1340687996000" expanded="true" signature="32544:32570" placeholder="INSERT INTO ..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eagleApp/config.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="4" selection-start="71" selection-end="71" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="264">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eagleApp/static/js/login.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1210">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="conmmon.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eagleApp/templates/conmmon.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="12" selection-start="2837" selection-end="2837" vertical-scroll-proportion="0.0" vertical-offset="693" max-vertical-offset="1650">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eagleApp/templates/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="30" selection-start="998" selection-end="998" vertical-scroll-proportion="-12.064516" vertical-offset="198" max-vertical-offset="8008">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eagleApp/static/js/list.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="11660">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sortable.min.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eagleApp/static/js/sortable.min.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="242">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jquery.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eagleApp/static/js/jquery.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="198">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -149,9 +109,6 @@
         <option value="D:/Program Files/Python27/Lib/subprocess.py" />
         <option value="$PROJECT_DIR$/jietu/utils.py" />
         <option value="$PROJECT_DIR$/jietu/config.py" />
-        <option value="$PROJECT_DIR$/jietu/live_probe.py" />
-        <option value="$PROJECT_DIR$/jietu/test.py" />
-        <option value="$PROJECT_DIR$/jietu/jietu.py" />
         <option value="$PROJECT_DIR$/eagle_test/static/js/list.js" />
         <option value="$PROJECT_DIR$/eagle_test/static/js/login.js" />
         <option value="$PROJECT_DIR$/eagle_test/templates/picture.html" />
@@ -161,14 +118,17 @@
         <option value="$PROJECT_DIR$/eagleApp/config.py" />
         <option value="D:/Program Files/Python27/Lib/site-packages/web/session.py" />
         <option value="$PROJECT_DIR$/eagleApp/server.py" />
+        <option value="$PROJECT_DIR$/jietu/test.py" />
+        <option value="$PROJECT_DIR$/jietu/live_probe.py" />
+        <option value="$PROJECT_DIR$/jietu/jietu.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -196,37 +156,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Default">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="Problems" />
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Work">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="Changed Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -279,6 +208,37 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Default">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Problems" />
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="MoreTV">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Changed Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -286,6 +246,10 @@
     <property name="recentsLimit" value="5" />
     <property name="FullScreen" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/eagle_test" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -491,8 +455,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -500,7 +464,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13103953" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39978904" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
@@ -508,11 +472,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -532,11 +496,35 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/eagleApp/templates/picture.html">
+    <entry file="file://$PROJECT_DIR$/eagleApp/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="42" selection-start="404" selection-end="404" vertical-scroll-proportion="0.0" vertical-offset="176" max-vertical-offset="5236">
+        <state line="26" column="30" selection-start="998" selection-end="998" vertical-scroll-proportion="0.0" vertical-offset="494" max-vertical-offset="6916" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eagleApp/static/js/list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10070">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eagleApp/static/js/sortable.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="209">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eagleApp/static/js/jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="171">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eagleApp/templates/picture.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="42" selection-start="404" selection-end="404" vertical-scroll-proportion="0.0" vertical-offset="176" max-vertical-offset="5236" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/jietu/utils.py">
@@ -679,39 +667,9 @@
         <state line="6" column="0" selection-start="54" selection-end="54" vertical-scroll-proportion="0.14316703" vertical-offset="0" max-vertical-offset="922" />
       </provider>
     </entry>
-    <entry file="file://D:/Program Files/Python27/Lib/commands.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="29" selection-start="1736" selection-end="1736" vertical-scroll-proportion="1.0260304" vertical-offset="330" max-vertical-offset="2112" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jietu/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="180" selection-end="180" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="308" />
-      </provider>
-    </entry>
-    <entry file="file://D:/Program Files/Python27/Lib/subprocess.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="991" column="12" selection-start="35392" selection-end="35392" vertical-scroll-proportion="-1.0737528" vertical-offset="22792" max-vertical-offset="35376" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jietu/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="18" selection-start="157" selection-end="157" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="396" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jietu/live_probe.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="24" selection-start="4492" selection-end="4492" vertical-scroll-proportion="0.0" vertical-offset="946" max-vertical-offset="14432" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/eagleApp/static/uploads/6d3b13c67b19378107aee31bbbd9fe7d.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jietu/jietu.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="28" selection-start="322" selection-end="322" vertical-scroll-proportion="0.0" vertical-offset="154" max-vertical-offset="4576" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/jietu/utils.py">
@@ -721,9 +679,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/eagleApp/templates/picture.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="42" selection-start="404" selection-end="404" vertical-scroll-proportion="0.0" vertical-offset="176" max-vertical-offset="5236">
-          <folding />
-        </state>
+        <state line="8" column="42" selection-start="404" selection-end="404" vertical-scroll-proportion="0.0" vertical-offset="176" max-vertical-offset="5236" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/eagleApp/templates/conmmon.html">
@@ -742,31 +698,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/eagleApp/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="30" selection-start="998" selection-end="998" vertical-scroll-proportion="-12.064516" vertical-offset="198" max-vertical-offset="8008">
-          <folding />
-        </state>
+        <state line="26" column="30" selection-start="998" selection-end="998" vertical-scroll-proportion="0.0" vertical-offset="494" max-vertical-offset="6916" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/eagleApp/static/js/pic.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2464">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2464" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/eagleApp/static/js/angular.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3960">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3960" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/eagleApp/static/js/jquery.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="909">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -786,11 +734,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/eagleApp/static/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="292" column="31" selection-start="10226" selection-end="10226" vertical-scroll-proportion="0.0" vertical-offset="5918" max-vertical-offset="27104">
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
+        <state line="292" column="31" selection-start="10226" selection-end="10226" vertical-scroll-proportion="0.0" vertical-offset="5918" max-vertical-offset="27104" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/eagleApp/config.py">
@@ -800,30 +744,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/Program Files/Python27/Lib/site-packages/web/db.py">
+    <entry file="file://$PROJECT_DIR$/eagleApp/server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="679" column="36" selection-start="21121" selection-end="21121" vertical-scroll-proportion="0.0" vertical-offset="14256" max-vertical-offset="27346">
+        <state line="56" column="18" selection-start="1455" selection-end="1455" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2318" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jietu/jietu.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="171" column="20" selection-start="4046" selection-end="4046" vertical-scroll-proportion="2.078767" vertical-offset="2035" max-vertical-offset="3610">
           <folding>
-            <marker date="1340687996000" expanded="true" signature="24071:24122" placeholder="INSERT INTO ..." />
-            <marker date="1340687996000" expanded="true" signature="25060:25089" placeholder="INSERT INTO ..." />
-            <marker date="1340687996000" expanded="true" signature="26509:26535" placeholder="INSERT INTO ..." />
-            <marker date="1340687996000" expanded="true" signature="29183:29195" placeholder="DELETE FROM ..." />
-            <marker date="1340687996000" expanded="true" signature="31151:31205" placeholder="SELECT c.rel..pg_class..." />
-            <marker date="1340687996000" expanded="true" signature="32544:32570" placeholder="INSERT INTO ..." />
+            <marker date="1400257890354" expanded="true" signature="-1:-1" placeholder="SELECT code ..mtv_channel..." />
+            <marker date="1400257890354" expanded="true" signature="-1:-1" placeholder="SELECT site,..mtv_source..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/Program Files/Python27/Lib/site-packages/web/session.py">
+    <entry file="file://$PROJECT_DIR$/jietu/live_probe.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="12" selection-start="1769" selection-end="1769" vertical-scroll-proportion="0.0" vertical-offset="181" max-vertical-offset="7964">
+        <state line="100" column="30" selection-start="3763" selection-end="3763" vertical-scroll-proportion="1.1313485" vertical-offset="1254" max-vertical-offset="12464">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eagleApp/server.py">
+    <entry file="file://$PROJECT_DIR$/jietu/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="8" selection-start="1080" selection-end="1080" vertical-scroll-proportion="0.88286334" vertical-offset="198" max-vertical-offset="2662">
+        <state line="6" column="23" selection-start="198" selection-end="198" vertical-scroll-proportion="0.19520548" vertical-offset="0" max-vertical-offset="584">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jietu/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="22" selection-start="44" selection-end="44" vertical-scroll-proportion="0.031353135" vertical-offset="0" max-vertical-offset="606">
           <folding />
         </state>
       </provider>

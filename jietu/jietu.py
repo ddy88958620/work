@@ -21,8 +21,12 @@ ffm_cmd ="./ffmpeg -i %s -f image2 -ss 1 -s 250x180 -vframes 1 %s -y"
 # 仅作为运行时计数用
 COUNT = 0
 count_lock = threading.Lock()
+
 # 截屏超时
 snap_timeout = 10
+
+# 获取url源优先顺序
+prior_list = ["cntv", "qq", "sohu", "ysten"]
 
 queue = Queue.Queue()
 
@@ -52,42 +56,19 @@ def getSrcList(code):
     return src_list
 
 
-# 查找一个url列表中是否有对应来源的url
-def search(key, src_list):
-    for src in src_list:
-        if key in src["site"]:
-            return src["url"]
-    else:
-        return False
-
-
 # 从url列表中选择可能的最优截图url
 def selectBestUrl(code, src_list):
     # 通过解析获取真实的Url
-    cntv_url = search("cntv_flv", src_list)
-    qq_url = search("qq", src_list)
-    sohu_url = search("sohu", src_list)
-    ysten_url = search("ysten", src_list)
-    other_url = src_list[0]["url"]
-    try:
-        if cntv_url:
-            return cntv_url
-        elif qq_url:
-            real_url = live_probe.URLTranslater(qq_url).realURL()
-            return real_url
-        elif ysten_url:
-            real_url = live_probe.URLTranslater(ysten_url).realURL()
-            return real_url
-        elif sohu_url:
-            real_url = live_probe.URLTranslater(sohu_url).realURL()
-            return real_url
-        else:
-            real_url = live_probe.URLTranslater(other_url).realURL()
-            return real_url
-
-    except Exception, e:
-        print e
-        return src_list[0]
+    for site in prior_list:
+        for src in src_list:
+            try:
+                if src["site"] == site:
+                    return live_probe.URLTranslater(src["url"]).realURL()
+                else:
+                    continue
+            except Exception, e:
+                print e
+                continue
 
 
 # 根据url截图
@@ -126,9 +107,13 @@ def printFinish(code):
 
 # 检查截图是否成功，若不成功遍历整个url列表直至截图成功
 def snapshot(code, src_list):
+    if not src_list:
+        return False
+
     global COUNT
     url = selectBestUrl(code, src_list)
     pname = code + ".jpg"
+
     snap(url, pname)
     # 如果最佳url截图不成功
     time.sleep(2)
@@ -170,10 +155,7 @@ class SnapThread(threading.Thread):
                 code = self.queue.get()
                 print "snapshoting", code
                 src_list = getSrcList(code)
-                if not src_list:
-                    print "\033[1;31;40m------>", code, "src_list is None!\033[0m"
-                else:
-                    snapshot(code, src_list)
+                snapshot(code, src_list)
                 self.queue.task_done()
             else:
                 break

@@ -11,7 +11,27 @@
 <script type="text/javascript" src="static/js/angular.min.js"></script>
 <script type="text/javascript" src="static/js/list.js"></script>
 <script type="text/javascript" src="static/js/main.js"></script>
-
+<script type="text/javascript">
+getData = function($$scope,$$http){
+    $$http({
+                url: PIC_LIST_URL,
+                method: "GET"
+               }).success(function (data, status, headers, config) {
+                if(data.status==200){
+                    $$scope.picData = data.picData;
+                }
+                else if(data.status==500){
+                    $$rootScope.tipBox = "show";
+                    $$rootScope.tipText="提交失败，请重试。";
+                    $$rootScope.tipClose = 'show';
+                    $$rootScope.allClose = 'hide';
+                };
+                
+            }).error(function (data, status, headers, config) {
+                console.log(status);
+           });    
+};    
+</script>
 </head>
 
 <body ng-controller="overall">
@@ -39,7 +59,7 @@
     </ul>
     <div class="right">&nbsp;</div>
 </div><!--end header-->
-<div class="layout">
+<div class="layout" ng-controller="getData">
     
     <div class="top"></div>
     <div class="box">

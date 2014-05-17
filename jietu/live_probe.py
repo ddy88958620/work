@@ -97,7 +97,7 @@ class URLTranslater(object):
             t = time.time() / 1000000000
             jurl = 'http://live.tv.sohu.com/live/player_json.jhtml?encoding=utf-8&lid=%s&ver=21&type=1&g=8&t=%-10.10f' % (vid, t)
             http = httplib2.Http(timeout=10)
-            print "%s" % jurl
+            # print "%s" % jurl
             header = {"Accept": "*/*", 'Accept-Encoding': '*',
                         'User-Agent': 'AppleCoreMedia/1.0.0.9A405 (iPad; U; CPU OS 5_0_1 like Mac OS X; zh_cn)'}
             response, content = http.request(jurl, 'GET', redirections=5, headers=header)
@@ -152,7 +152,7 @@ class URLTranslater(object):
         kk = getOneReg(urllib.unquote(ctx), 'kk=(.*)$')
 
         real_url = 'http://web-play.pptv.com/web-m3u8-%s.m3u8?type=m3u8.web.pad&playback=0&kk=%s' % (vid, kk)
-        print real_url
+        # print real_url
         return real_url
 
 
