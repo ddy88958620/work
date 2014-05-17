@@ -1,29 +1,32 @@
 #-*- coding: utf-8 -*-
 
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
+
 import subprocess
 import time
-import sys
 import utils
 import os
 import Queue
 import threading
 import live_probe
 
-reload(sys)
-sys.setdefaultencoding('utf8')
 
+# 获取url源优先顺序
+prior_list = ["cntv", "qq", "sohu", "ysten"]
+# 暂存文件路径
 tmp_path = sys.path[0] + "/tmp/"
 # 整个脚本运行完成后将tmp中所有截图移动到snapshot文件夹中
 snapshot_path = sys.path[0] + "/snapshot/"
-
+# ffmpeg截图命令
 ffm_cmd ="./ffmpeg -i %s -f image2 -ss 1 -s 250x180 -vframes 1 %s -y"
-
 # 仅作为运行时计数用
 COUNT = 0
 count_lock = threading.Lock()
 # 截屏超时
 snap_timeout = 10
-
+# code队列
 queue = Queue.Queue()
 
 # 从数据库中获取需要截图的频道code列表
@@ -52,46 +55,24 @@ def getSrcList(code):
     return src_list
 
 
-# 查找一个url列表中是否有对应来源的url
-def search(key, src_list):
-    for src in src_list:
-        if key in src["site"]:
-            return src["url"]
-    else:
-        return False
+# 按照prior列表对src_list进行排序
+def sortSrcs(src_list):
+    sorted_srcs = []
+    for site in prior_list:
+        for src in src_list:
+            if src["site"] == site:
+                sorted_srcs.append(src)
 
-
-# 从url列表中选择可能的最优截图url
-def selectBestUrl(code, src_list):
-    # 通过解析获取真实的Url
-    cntv_url = search("cntv_flv", src_list)
-    qq_url = search("qq", src_list)
-    sohu_url = search("sohu", src_list)
-    ysten_url = search("ysten", src_list)
-    other_url = src_list[0]["url"]
-    try:
-        if cntv_url:
-            return cntv_url
-        elif qq_url:
-            real_url = live_probe.URLTranslater(qq_url).realURL()
-            return real_url
-        elif ysten_url:
-            real_url = live_probe.URLTranslater(ysten_url).realURL()
-            return real_url
-        elif sohu_url:
-            real_url = live_probe.URLTranslater(sohu_url).realURL()
-            return real_url
-        else:
-            real_url = live_probe.URLTranslater(other_url).realURL()
-            return real_url
-
-    except Exception, e:
-        print e
-        return src_list[0]
+    other_srcs = [x for x in src_list if x not in sorted_srcs]
+    sorted_srcs.extend(other_srcs)
+    return sorted_srcs
 
 
 # 根据url截图
 def snap(url, pname):
+    if not url:
+        return False
+
     pic_name = tmp_path + pname
     # ffmpeg截图命令第一个参数为url，第二个参数为截图文件名
     cmd = ffm_cmd % (url, pic_name)
@@ -103,16 +84,14 @@ def snap(url, pname):
         try:
             ret = p.poll()
             if ret:
-                p.terminate()
-                break
-            elif (ret == None and timer == snap_timeout - 1):
+                time.sleep(2)
+                return True
+            elif timer == snap_timeout - 1:
                 p.terminate()
                 return False
             time.sleep(1)
         except:
             return False
-
-    return True
 
 
 # 打印完成信息
@@ -124,37 +103,28 @@ def printFinish(code):
     count_lock.release()
 
 
-# 检查截图是否成功，若不成功遍历整个url列表直至截图成功
+# 遍历整个src_list并截图，并返回结果信息
 def snapshot(code, src_list):
-    global COUNT
-    url = selectBestUrl(code, src_list)
-    pname = code + ".jpg"
-    snap(url, pname)
-    # 如果最佳url截图不成功
-    time.sleep(2)
-    if not os.path.exists(tmp_path+pname):
-        print code, "------> first try failed! ------>", url
-        success = False
-        for src in src_list:
-            try:
-                url = live_probe.URLTranslater(src["url"]).realURL()
-                # print "------> try", url
-                snap(url, pname)
-                time.sleep(2)
-                if not os.path.exists(tmp_path+pname):
-                    continue
-                else:
-                    success = True
-                    printFinish(code)
-                    break
-            except Exception, e:
-                print e
-                continue
+    if not src_list:
+        print "\033[1;31;40m------> src_list of", code, "is empty!\033[0m"
+        return False
 
-        if not success:
-            print "\033[1;31;40m------>", pname, "can not be created!\033[0m"
-    else:
-        printFinish(code)
+    global COUNT
+    pname = code + ".jpg"
+    sorted_srcs = sortSrcs(src_list)
+
+    for src in sorted_srcs:
+        try:
+            url = live_probe.URLTranslater(src["url"]).realURL()
+            snap(url, pname)
+            if os.path.exists(tmp_path+pname):
+                printFinish(code)
+                return True
+        except Exception, e:
+            print e
+
+    print "\033[1;31;40m------>", pname, "can not be created!\033[0m"
+    return False
 
 
 # 多线程截图类
@@ -170,10 +140,7 @@ class SnapThread(threading.Thread):
                 code = self.queue.get()
                 print "snapshoting", code
                 src_list = getSrcList(code)
-                if not src_list:
-                    print "\033[1;31;40m------>", code, "src_list is None!\033[0m"
-                else:
-                    snapshot(code, src_list)
+                snapshot(code, src_list)
                 self.queue.task_done()
             else:
                 break
