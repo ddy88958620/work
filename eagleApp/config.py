@@ -4,5 +4,5 @@ host = "localhost"
 port = 3306
 charset = "utf-8"
 db = "eagleapp"
-user = "ealge"
+user = "eagle"
 passwd = "app"

@@ -50,7 +50,7 @@ app.directive("uploadUploadify", function() {
             element.uploadify({
                 'method'   : 'post',
                 'auto': true,
-                'swf': opts.swf || './js/uploadify.swf',
+                'swf': opts.swf || 'static/js/uploadify.swf',
                 'uploader': opts.uploader || 'static/js/uploadify.php',//图片上传方法
                 
                 'buttonText': opts.buttonText || '上传文件',
