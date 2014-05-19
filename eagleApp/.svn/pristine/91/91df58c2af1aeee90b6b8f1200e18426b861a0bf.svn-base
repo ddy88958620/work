@@ -1,0 +1,192 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
+import web
+import json
+import utils
+import config
+import hashlib
+
+# web.config.debug = False
+LIVE_IMG_DOMIN = "http://eagleapp.qiniudn.com"
+
+render = web.template.render("templates/")
+
+urls = (
+    "/login", "login",
+    "/index.html", "index",
+    "/picture.html", "picture",
+    "/live.html", "live",
+    "/recommend.html", "recommend",
+    "/logout", "logout",
+    "/listdata", "listdata",    # 应用列表
+    "/app_edit", "appEdit",
+    "/app_delete", "appDelete",
+    "/app_classify", "appClassify",
+    "/recommend_edit", "recommendEdit",
+    "/recommend_delete", "recommendDelete",
+    "/recommend_build", "recommendBuild",
+    "/live_edit", "liveEdit",
+    "/live_delete", "liveDelete",
+    "/live_build", "liveBuild",
+    "/live_classify", "liveClassify",
+    "/pic_list", "picList",
+    # "/start_pic", "startPic",   # 启动页图片接口
+    # "/load_pic", "loadPic", # 加载页图片接口
+    "/upload", "Upload",
+)
+
+login_url = "/login"
+index_url = "/index.html"
+
+app = web.application(urls, globals())
+
+if web.config.get('_session') is None:
+    initializer = {
+        "loggedin": False,
+        "user": None
+    }
+    session = web.session.Session(app, web.session.DiskStore("sessions"), initializer=initializer)
+    web.config._session = session
+    web.config.session_parameters['cookie_name'] = 'session_id'
+    web.config.session_parameters["timeout"] = 300
+    web.config.session_parameters["ignore_expiry"] = False
+    web.config.session_parameters["ignore_change_ip"] = False
+else:
+    session = web.config._session
+
+db = web.database(dbn="mysql", db=config.db, user=config.user, pw=config.passwd)
+
+def logged():
+    if session.loggedin == True:
+        return True
+    else:
+        return False
+
+def existed(user, pw):
+    pwhash = hashlib.md5(pw).hexdigest()
+    user_vars = {"user": user, "pw": pwhash}
+    exist = db.select("users", vars=user_vars, where="uname=$user and passwd=$pw")
+    return exist
+
+class login:
+    def GET(self):
+        if logged():
+            raise web.seeother(index_url)
+        else:
+            return render.login()
+
+    def POST(self):
+        data = json.loads(web.data())
+        user = data["user"]
+        pw = data["passwd"]
+        exist = existed(user, pw)
+        if exist:
+            session.loggedin = True
+            session.user = user
+            # web.ctx.status = 200
+            data = json.dumps({"status": 200})
+        else:
+            # web.ctx.status = 403
+            data = json.dumps({"status": 403})
+
+        return data
+
+class index:
+    def GET(self):
+        if logged():
+            return render.index()
+        else:
+            raise web.seeother(login_url)
+
+
+class picture:
+    def GET(self):
+        if logged():
+            return render.picture()
+        else:
+            raise web.seeother(login_url)
+
+class live:
+    def GET(self):
+        if logged():
+            return render.live()
+        else:
+            raise web.seeother(login_url)
+
+class recommend:
+    def GET(self):
+        if logged():
+            return render.recommend()
+        else:
+            raise web.seeother(login_url)
+
+class logout:
+    def GET(self):
+        session.kill()
+        raise web.seeother(login_url)
+
+class listdata():
+    def GET(self):
+        #score, show, pic
+        what = "name, icon, publishdate, version, download, fullinfo"
+
+class appEdit():
+    def POST(self):
+        data = web.data()
+
+class picList():
+    def __init__(self):
+        self.start_tab = "live_starting"
+        self.load_tab = "live_loading"
+
+    def GET(self):
+        data_type = web.input()
+        print data_type
+        what = "url, time, status, weight"
+
+        if data_type.data == "starting":
+            results = db.select(self.start_tab, what=what)
+        elif data_type.data == "loading":
+            results = db.select(self.load_tab, what=what)
+
+        data = {}
+        data["status"] = 200
+        data["picData"] = []
+        for i in results:
+            item = {}
+            item["pic"] = LIVE_IMG_DOMIN + i.url
+            item["time"] = i.time.strftime("%Y-%m-%d %H:%M:%S")
+            item["state"] = i.status
+            item["weight"] = i.weight
+            data["picData"].append(item)
+        data = json.dumps(data)
+        return data
+
+    def POST(self):
+        data = web.data()
+        print data
+
+
+class Upload:
+    def GET(self):
+        return """<html><head></head><body>
+<form method="POST" enctype="multipart/form-data" action="">
+<input type="file" name="myfile" />
+<br/>
+<input type="submit" />
+</form>
+</body></html>"""
+
+    def POST(self):
+        x = web.input(myfile={})
+        web.debug(x['myfile'].filename) # 这里是文件名
+        web.debug(x['myfile'].value) # 这里是文件内容
+        web.debug(x['myfile'].file.read()) # 或者使用一个文件对象
+        raise web.seeother('/upload')
+
+if __name__ == "__main__":
+    app.run()

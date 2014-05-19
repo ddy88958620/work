@@ -14,7 +14,8 @@ LIVE_BUILD_LIST_URL ='live_build';/////拖动排序
 /*=======直播分类======*/
 LIVE_CLASSIFY_URL = 'live_classify';
 /*=======直播配图数据======*/
-PIC_LIST_URL='pic_list';
+PIC_LIST_URL='live_pic';
+LIVE_PIC_UPLOAD = 'live_pic_upload';
 //////////////////////////////
 var console=console||{log:function(){return;}};
 if(!app){
@@ -51,8 +52,11 @@ app.directive("uploadUploadify", function() {
                 'method'   : 'post',
                 'auto': true,
                 'swf': opts.swf || 'static/js/uploadify.swf',
-                'uploader': opts.uploader || 'static/js/uploadify.php',//图片上传方法
-                
+                'uploader': opts.uploader || LIVE_PIC_UPLOAD,//图片上传方法
+                'fileTypeDesc' : 'Image Files (.JPG,.JPEG,.GIF,.PNG,.BMP)', //出现在上传对话框中的文件类型描述
+                'fileTypeExts' : '*.jpg;*.jpeg;*.gif;*.png;*.bmp', //控制可上传文件的扩展名，启用本项时需同时声明fileDesc
+                'fileSizeLimit' : 1024*5+'KB', //控制上传文件的大小，单位byte
+
                 'buttonText': opts.buttonText || '上传文件',
                 'width': opts.width || '100%',
                 'height': opts.height || 36,
@@ -61,9 +65,9 @@ app.directive("uploadUploadify", function() {
                         if (data !==1) {
                             var picData = [];
                             data = JSON.parse(data);
-                            console.log(data);
+                            
                             $scope.$apply(function() {
-                                ngModel.$setViewValue(data.basename);
+                                ngModel.$setViewValue(data.url);
                                 if($scope.app){
                                     $scope.app.url = 'http://www/uploads'+$scope.app.urls;
                                     $scope.app.logo = 'static/uploads/'+$scope.app.logos;
@@ -82,8 +86,8 @@ app.directive("uploadUploadify", function() {
                                 if($scope.history){
                                     $scope.history.url = 'http://www/uploads'+$scope.history.urls;
                                 };
-                                if($scope.picData){
-                                    $scope.picture.pic = 'static/uploads/'+$scope.picture.pics;
+                                if($scope.picture.pics){
+                                    $scope.picture.pic = $scope.picture.pics;
                                 };
                             });
                             
@@ -182,7 +186,9 @@ if(!Array.indexOf)//////ie不支持数组的indexof方法
         return -1;
     }
 };
+pictureData =[];
 overall = function($scope,$http,$rootScope,$filter){
+    $scope.picData = pictureData;
     //////个人信息
     infoShow = function(){
         this._click = function(){
@@ -1053,16 +1059,28 @@ appHistory = function($scope,$http,$rootScope){*/
         return (data.drags == 'lecture'); // only accept lecture
       }
     };
-    //////////直播配图//////////
-    ////分类管理
-    $scope.classifyPicData = [
-        {
-            name:'启动页',id:'starting'
-        },
-        {
-            name:'加载页',id:'loading'    
+    
+//	$scope.picData = [];
+};
+//////
+getData = function($scope,$http){
+    $http({
+        url: PIC_LIST_URL + "?data=starting",
+        method: "GET"
+    }).success(function (data, status, headers, config) {
+        if(data.status==200){
+			pictureData = data.picData;
+            $scope.picData = data.picData;
         }
-    ];
+        else if(data.status==500){
+            $rootScope.tipBox = "show";
+            $rootScope.tipText="提交失败，请重试。";
+            $rootScope.tipClose = 'show';
+            $rootScope.allClose = 'hide';
+        }
+    }).error(function (data, status, headers, config) {
+        console.log(status);
+    });
     $scope.classifyPic = function(){ 
         classifyPicType = this.classify.id;
         $http({
@@ -1082,8 +1100,17 @@ appHistory = function($scope,$http,$rootScope){*/
             }).error(function (data, status, headers, config) {
                 console.log(status);
            });    
-        
     };
+	//////////直播配图//////////
+    ////分类管理
+    $scope.classifyPicData = [
+        {
+            name:'启动页',id:'starting'
+        },
+        {
+            name:'加载页',id:'loading'    
+        }
+    ];
     ////配图开关
     $scope.turnPic = function(){
         this.list.state = !this.list.state;
@@ -1189,7 +1216,6 @@ appHistory = function($scope,$http,$rootScope){*/
        });        
     };
 };
-
 angular.element(document).ready(function(){
     ////二级菜单
     $('#nav>li').hover(function(){

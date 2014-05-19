@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html ng-app="myApp" id="ng-app" ng-cloak>
+<head>
+<meta content="text/html;charset=UTF-8" http-equiv="Content-Type" />
+<title>小鹰</title>
+<link rel="stylesheet" type="text/css" href="static/css/css.css" />
+<link rel="stylesheet" type="text/css" href="static/css/uploadify.css" />
+<script type="text/javascript" src="static/js/jquery.js"></script>
+<script type="text/javascript" src="static/js/jquery.uploadify.min.js"></script>
+<script type="text/javascript" src="static/js/pic.js"></script>
+<script type="text/javascript" src="static/js/angular.min.js"></script>
+<script type="text/javascript" src="static/js/list.js"></script>
+<script type="text/javascript" src="static/js/main.js"></script>
+<script type="text/javascript">
+getData = function($$scope,$$http){
+    $$http({
+//        url: PIC_LIST_URL,
+        url: PIC_LIST_URL + "?data=starting",
+        method: "GET"
+    }).success(function (data, status, headers, config) {
+        if(data.status==200){
+            $$scope.picData = data.picData;
+        }
+        else if(data.status==500){
+            $$rootScope.tipBox = "show";
+            $$rootScope.tipText="提交失败，请重试。";
+            $$rootScope.tipClose = 'show';
+            $$rootScope.allClose = 'hide';
+        }
+    }).error(function (data, status, headers, config) {
+        console.log(status);
+    });
+};
+</script>
+</head>
+
+<body ng-controller="overall">
+<div class="header">
+    <div class="logo">
+        <p>当前用户</p>
+        <p>
+            <strong>XXXXXXXXX</strong>
+        </p>
+    </div>
+    <ul id="nav">
+        <li ng-repeat="nav in navData">
+            <a ng-href="{{nav.url}}">
+                <p><i ng-class="nav.icon">&nbsp;</i></p>
+                <p>{{nav.name}}</p>
+            </a>
+            <ol>
+                <li ng-repeat="subs in nav.subnav">
+                    <a ng-href="{{subs.url}}" ng-click="subs.object._click()">
+                        {{subs.name}}
+                    </a>
+                </li>
+            </ol>
+        </li>
+    </ul>
+    <div class="right">&nbsp;</div>
+</div><!--end header-->
+<div class="layout" ng-controller="getData">
+    
+    <div class="top"></div>
+    <div class="box">
+        <div class="title">
+            <div class="classifyTab">
+                <ul class="tabs">
+                    <li ng-click="classifyPic()" ng-repeat="classify in classifyPicData">
+                        {{classify.name}}
+                    </li>
+                </ul>
+            </div><!--end classifyTab-->
+            <a href="javascript:void(0);" ng-click="addPicture()" class="classify">增加信息</a>
+        </div><!--end title-->
+        <div class="tableBox">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <thead>
+                    <tr>
+                        <td width="10%">序号</td>
+                        <td width="25%">图片</td>
+                        <td width="20%">时间</td>
+                        <td width="15%">权重</td>
+                        <td width="15%">状态</td>
+                        <td width="15%">
+                            操作
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="list in picData"  ng-class="{true:'',false:'disabled'}[list.state]">
+                        <td>{{$$index+1}}</td>
+                        <td><img ng-src="{{list.pic}}" width="120" height="90" title="点击查看大图" myIndex="{{$$index}}" class="viewPic" /></td>
+                        <td>
+                            {{list.time}}
+                        </td>
+                        <td><span class="grade">{{list.weight}}</span></td>
+                        <td>
+                            <div class="toggle" ng-class="{true:'',false:'toggle-off'}[list.state]" ng-click="turnPic()">
+                                <label class="toggle-radio" for="toggleOption2">ON</label>
+                                <label class="toggle-radio" for="toggleOption1">OFF</label>
+                            </div>
+                        </td>
+                        <td>
+                            <a href="javascript:void(0)" ng-click="updatePicture($$index)" class="btn edit">编辑</a>
+                            <a href="javascript:void(0)" ng-click="deleteShow()" class="btn delete">删除</a>
+                            <div class="sure">
+                                <div class="deleteBox" ng-show="deleteBox=='show'" ng-class="{'show': 'show', 'hide': ''}[deleteBox]" style="display:none;">
+                                    <div class="title">
+                                        温馨提示
+                                        <a href="javascript:void(0)" class="close" ng-click="deleteBoxHide()">关闭</a>
+                                    </div>
+                                    <div class="content">
+                                        您确定要删除这条信息吗？
+                                        <p>
+                                            <a href="javascript:void(0)" ng-click="deletePic($$index)" class="btn edit">确定</a>
+                                            <a href="javascript:void(0)" ng-click="deleteBoxHide()" class="btn delete">取消</a>
+                                        </p>
+                                    </div>
+                                </div><!--end tipBox-->
+                            </div>
+                        </td>
+                    </tr>
+                  </tbody>
+            </table>
+
+        </div><!--end tableBox-->
+    </div><!--end box-->
+</div><!--end layout-->
+<div id="all" ng-show="allBox=='show'" style="display:none;" ng-click="closeAll()">&nbsp;</div>
+<div class="popupBox" ng-show="popupBox =='show'" ng-class="{'show': 'show', 'hide': ''}[popupBox]" style="display:none;">
+    <div class="title">
+        修改内容
+        <a href="javascript:void(0)" class="close" ng-click="closeAll()">关闭</a>
+    </div>
+    <div class="content">
+        <form novalidate  name="picForm" >
+        <ul class="form">
+            <li class="uploads">
+                <label>上传图片</label>
+                <div class="uploadBtn">
+                    <input type="file" ng-model="picture.pics" id="uploadifyPic"  upload-uploadify  />
+                    <input name="picturePic" type="hidden" ng-model="picture.pic" required />
+                </div>
+            </li>
+            <li>
+                <label>选择权重</label>
+                <select name="pictureWeight" size="1" ng-model="picture.weight" ng-options="t.value as t.value for t in weightData">
+                    <option value="" style="display:none;">请选择类型</option>
+                </select>
+            </li>
+            <li class="full">
+                <div class="picBox"><img ng-src="{{picture.pic}}" width="420" height="315" ng-show="picture.pic" /></div>
+            </li>
+            <li class="button">
+                <a href="javascript:void(0);" ng-click="submitPic(types,num)" class="submit">提交</a>
+            </li>
+        </ul>
+        </form>
+    </div><!--end content-->
+</div><!--end popupBox-->
+<div class="popupBox" id="popupBox" style="display:none; top:90px;">
+    <div class="title">
+        查看大图
+        <a href="javascript:void(0)" id="close" class="close" ng-click="closeAll()">关闭</a>
+    </div>
+    <div class="content">
+        <div class="picShow" id="showPic">
+            <ul>
+                <li ng-repeat="imgs in picData">
+                    <img ng-src="{{imgs.pic}}" />
+                </li>
+            </ul>
+            <div class="number">
+            </div><!--end number-->
+            <a href="javascript:void(0)" class="arrow prev">&nbsp;</a>
+            <a href="javascript:void(0)" class="arrow next">&nbsp;</a>
+        </div><!--end picShow-->
+    </div><!--end content-->
+</div><!--end popupBox-->
+<div class="popupBox minBox" ng-show="infoBox =='show'" ng-class="{'show': 'show', 'hide': ''}[infoBox]" style="display:none;">
+    <div class="title">
+        个人信息
+        <a href="javascript:void(0)" class="close" ng-click="closeAll()">关闭</a>
+    </div>
+    <div class="content">
+        <form novalidate  name="infoForm" >
+        <ul class="form">
+            <li>
+                <label>Token</label>
+                <input type="text" name="infoToken"  ng-pattern="myToken" ng-model="info.Token" required />
+                <span class="check" ng-show="infoForm.infoToken.$$dirty && infoForm.infoToken.$$invalid">填写有误</span>
+            </li>
+            <li>
+                <label>AppID</label>
+                <input type="text" name="infoAppid" ng-pattern="myToken" ng-model="info.AppID" required />
+                <span class="check" ng-show="infoForm.infoAppid.$$dirty && infoForm.infoAppid.$$invalid">填写有误</span>
+            </li>
+            <li>
+                <label>Secret</label>
+                <input type="text" name="infoSecret" ng-pattern="myToken" ng-model="info.Scret" required />
+                <span class="check" ng-show="infoForm.infoSecret.$$dirty && infoForm.infoSecret.$$invalid">填写有误</span>
+            </li>
+            <li class="button">
+                <a href="javascript:void(0);" ng-click="submitInfo()" class="submit">确定</a>
+            </li>
+        </ul>
+        </form>
+    </div><!--end content-->
+</div><!--end popupBox-->
+<div class="popupBox minBox" ng-show="passwdBox =='show'" ng-class="{'show': 'show', 'hide': ''}[passwdBox]" style="display:none;">
+    <div class="title">
+        修改密码
+        <a href="javascript:void(0)" class="close" ng-click="closeAll()">关闭</a>
+    </div>
+    <div class="content">
+        <form novalidate  name="passwdForm" >
+        <ul class="form">
+            <li>
+                <label>原密码</label>
+                <input type="password" name="passwdOld"  placeholder="长度为6-12位字母或数字"  ng-pattern="myPasswd" ng-model="passwd.old" required />
+                <span class="check" ng-show="passwdForm.passwdOld.$$dirty && passwdForm.passwdOld.$$invalid">填写有误</span>
+            </li>
+            <li>
+                <label>新密码</label>
+                <input type="password" name="passwdNew" ng-model="passwd.news" class="newpassword" required />
+                <span class="check" ng-show="passwdForm.passwdNew.$$error.newpasswd">填写有误</span>
+            </li>
+            <li>
+                <label>确认密码</label>
+                <input type="password" name="passwdConfirm" ng-model="passwd.confirms" class="confirmpassword"  required />
+                <span class="check2" ng-show="passwdForm.passwdConfirm.$$error.confirmpasswd">两次输入密码不一致</span>
+            </li>
+            <li class="button">
+                <a href="javascript:void(0);" ng-click="submitPasswd()" class="submit">确定</a>
+            </li>
+        </ul>
+        </form>
+    </div><!--end content-->
+</div><!--end popupBox-->
+<div class="tipBox" ng-show="tipBox=='show'" ng-class="{'show': 'show', 'hide': ''}[tipBox]" style="display:none;">
+    <div class="title">
+        温馨提示
+        <a href="javascript:void(0)" class="close" ng-show="tipClose=='show'" ng-click="tipBoxHide()" style="display:none;">关闭</a>
+        <a href="javascript:void(0)" class="close" ng-show="allClose=='show'" ng-click="closeAll()" style="display:none;">全部关闭</a>
+    </div>
+    <div class="content">
+        {{tipText}}
+    </div>
+</div><!--end tipBox-->
+</body>
+</html>

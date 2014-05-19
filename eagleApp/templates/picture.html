@@ -11,26 +11,7 @@
 <script type="text/javascript" src="static/js/angular.min.js"></script>
 <script type="text/javascript" src="static/js/list.js"></script>
 <script type="text/javascript" src="static/js/main.js"></script>
-<script type="text/javascript">
-getData = function($$scope,$$http){
-    $$http({
-        url: PIC_LIST_URL,
-        method: "GET"
-    }).success(function (data, status, headers, config) {
-        if(data.status==200){
-            $$scope.picData = data.picData;
-        }
-        else if(data.status==500){
-            $$rootScope.tipBox = "show";
-            $$rootScope.tipText="提交失败，请重试。";
-            $$rootScope.tipClose = 'show';
-            $$rootScope.allClose = 'hide';
-        }
-    }).error(function (data, status, headers, config) {
-        console.log(status);
-    });
-};
-</script>
+
 </head>
 
 <body ng-controller="overall">
@@ -87,7 +68,7 @@ getData = function($$scope,$$http){
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="list in picData"  ng-class="{true:'',false:'disabled'}[list.state]">
+                    <tr ng-repeat="list in picData"  ng-class="{true:'', false:'disabled'}[list.state]">
                         <td>{{$$index+1}}</td>
                         <td><img ng-src="{{list.pic}}" width="120" height="90" title="点击查看大图" myIndex="{{$$index}}" class="viewPic" /></td>
                         <td>
@@ -95,7 +76,7 @@ getData = function($$scope,$$http){
                         </td>
                         <td><span class="grade">{{list.weight}}</span></td>
                         <td>
-                            <div class="toggle" ng-class="{true:'',false:'toggle-off'}[list.state]" ng-click="turnPic()">
+                            <div class="toggle" ng-class="{true:'', false:'toggle-off'}[list.state]" ng-click="turnPic()">
                                 <label class="toggle-radio" for="toggleOption2">ON</label>
                                 <label class="toggle-radio" for="toggleOption1">OFF</label>
                             </div>
