@@ -16,11 +16,11 @@ import live_probe
 # 获取url源优先顺序
 prior_list = ["cntv", "qq", "sohu", "ysten"]
 # 暂存文件路径
-tmp_path = sys.path[0] + "/tmp/"
+tmp_path = "".join([sys.path[0], "/tmp/"])
 # 整个脚本运行完成后将tmp中所有截图移动到snapshot文件夹中
-snapshot_path = sys.path[0] + "/snapshot/"
+snapshot_path = "".join([sys.path[0], "/snapshot/"])
 # ffmpeg截图命令
-ffm_cmd ="./ffmpeg -i %s -f image2 -ss 1 -s 250x180 -vframes 1 %s -y"
+ffm_cmd = "".join([sys.path[0], "/ffmpeg -i %s -f image2 -ss 1 -s 250x180 -vframes 1 %s -y"])
 # 仅作为运行时计数用
 COUNT = 0
 count_lock = threading.Lock()
@@ -28,6 +28,8 @@ count_lock = threading.Lock()
 snap_timeout = 10
 # code队列
 queue = Queue.Queue()
+
+pid_list = []
 
 # 从数据库中获取需要截图的频道code列表
 def getCodes():
@@ -73,11 +75,12 @@ def snap(url, pname):
     if not url:
         return False
 
-    pic_name = tmp_path + pname
+    pic_name = "".join([tmp_path, pname])
     # ffmpeg截图命令第一个参数为url，第二个参数为截图文件名
     cmd = ffm_cmd % (url, pic_name)
     cmd_list = cmd.split(" ")
     p = subprocess.Popen(cmd_list, stderr=subprocess.PIPE)
+    pid_list.append(p.pid)
 
     # 每秒检查一次ffmpeg截图进程是否完成，若8秒仍未完成杀死此进程
     for timer in range(snap_timeout):
@@ -85,9 +88,14 @@ def snap(url, pname):
             ret = p.poll()
             if ret:
                 time.sleep(2)
+                # subprocess.call("".join(["kill -9 ", str(p.pid)]), stderr=subprocess.PIPE, shell=True)
+                p.terminate()
+                # p.wait()
                 return True
             elif timer == snap_timeout - 1:
+                # subprocess.call("".join(["kill -9 ", str(p.pid)]), stderr=subprocess.PIPE, shell=True)
                 p.terminate()
+                # p.wait()
                 return False
             time.sleep(1)
         except:
@@ -110,14 +118,14 @@ def snapshot(code, src_list):
         return False
 
     global COUNT
-    pname = code + ".jpg"
+    pname = "".join([code, ".jpg"])
     sorted_srcs = sortSrcs(src_list)
 
     for src in sorted_srcs:
         try:
             url = live_probe.URLTranslater(src["url"]).realURL()
             snap(url, pname)
-            if os.path.exists(tmp_path+pname):
+            if os.path.exists("".join([tmp_path, pname])):
                 printFinish(code)
                 return True
         except Exception, e:
@@ -148,9 +156,20 @@ class SnapThread(threading.Thread):
 
 def main():
     start = time.time()
-    subprocess.Popen("rm "+tmp_path+"*", shell=True)
 
-    code_list = getCodes()
+    if not os.path.exists(tmp_path):
+        os.makedirs(tmp_path)
+
+    if not os.path.exists(snapshot_path):
+        os.makedirs(snapshot_path)
+
+    subprocess.call("".join(["rm ", tmp_path, "*"]), stderr=subprocess.PIPE, shell=True)
+
+    if len(sys.argv) > 1:
+        code_list = [sys.argv[1]]
+    else:
+        code_list = getCodes()
+
     for code in code_list:
         queue.put(code)
 
@@ -161,7 +180,11 @@ def main():
 
     queue.join()
 
-    subprocess.Popen("mv "+tmp_path+"* "+snapshot_path, shell=True)
+    subprocess.call("".join(["mv ", tmp_path, "* ", snapshot_path]), shell=True)
+    # subprocess.Popen("killall -9 ffmpeg", stderr=subprocess.PIPE, shell=True)
+    
+    for pid in pid_list:
+        subprocess.call("".join(["kill -9 ", str(pid)]), stderr=subprocess.PIPE, shell=True)
 
     print time.time() - start, "s"
 
