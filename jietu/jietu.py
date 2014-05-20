@@ -82,7 +82,7 @@ def snap(url, pname):
     p = subprocess.Popen(cmd_list, stderr=subprocess.PIPE)
     pid_list.append(p.pid)
 
-    # 每秒检查一次ffmpeg截图进程是否完成，若8秒仍未完成杀死此进程
+    # 每秒检查一次ffmpeg截图进程是否完成，若timout到了仍未完成杀死此进程
     for timer in range(snap_timeout):
         try:
             ret = p.poll()
@@ -90,12 +90,10 @@ def snap(url, pname):
                 time.sleep(2)
                 # subprocess.call("".join(["kill -9 ", str(p.pid)]), stderr=subprocess.PIPE, shell=True)
                 p.terminate()
-                # p.wait()
                 return True
             elif timer == snap_timeout - 1:
                 # subprocess.call("".join(["kill -9 ", str(p.pid)]), stderr=subprocess.PIPE, shell=True)
                 p.terminate()
-                # p.wait()
                 return False
             time.sleep(1)
         except:
@@ -153,17 +151,21 @@ class SnapThread(threading.Thread):
             else:
                 break
 
-
-def main():
-    start = time.time()
-
+def init():
     if not os.path.exists(tmp_path):
-        os.makedirs(tmp_path)
+    os.makedirs(tmp_path)
 
     if not os.path.exists(snapshot_path):
         os.makedirs(snapshot_path)
 
     subprocess.call("".join(["rm ", tmp_path, "*"]), stderr=subprocess.PIPE, shell=True)
+
+
+
+def main():
+    start = time.time()
+
+    init()
 
     if len(sys.argv) > 1:
         code_list = [sys.argv[1]]
@@ -181,6 +183,8 @@ def main():
     queue.join()
 
     subprocess.call("".join(["mv ", tmp_path, "* ", snapshot_path]), shell=True)
+
+    # 实在不行只能这么办了......
     # subprocess.Popen("killall -9 ffmpeg", stderr=subprocess.PIPE, shell=True)
     
     for pid in pid_list:
