@@ -153,13 +153,12 @@ class SnapThread(threading.Thread):
 
 def init():
     if not os.path.exists(tmp_path):
-    os.makedirs(tmp_path)
+        os.makedirs(tmp_path)
 
     if not os.path.exists(snapshot_path):
         os.makedirs(snapshot_path)
 
     subprocess.call("".join(["rm ", tmp_path, "*"]), stderr=subprocess.PIPE, shell=True)
-
 
 
 def main():
