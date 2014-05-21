@@ -1059,30 +1059,13 @@ appHistory = function($scope,$http,$rootScope){*/
         return (data.drags == 'lecture'); // only accept lecture
       }
     };
-    
-//	$scope.picData = [];
-};
-//////
-getData = function($scope,$http){
-    $http({
-        url: PIC_LIST_URL + "?data=starting",
-        method: "GET"
-    }).success(function (data, status, headers, config) {
-        if(data.status==200){
-			pictureData = data.picData;
-            $scope.picData = data.picData;
-        }
-        else if(data.status==500){
-            $rootScope.tipBox = "show";
-            $rootScope.tipText="提交失败，请重试。";
-            $rootScope.tipClose = 'show';
-            $rootScope.allClose = 'hide';
-        }
-    }).error(function (data, status, headers, config) {
-        console.log(status);
-    });
-    $scope.classifyPic = function(){ 
-        classifyPicType = this.classify.id;
+    ///////直播配图
+	 $scope.classifyPic = function(type){ 
+	    if(this.classify){
+			classifyPicType = this.classify.id
+		}else{
+			classifyPicType = type;	
+		};
         $http({
                 url: PIC_LIST_URL+'?data=' + classifyPicType,
                 method: "GET"
@@ -1101,7 +1084,6 @@ getData = function($scope,$http){
                 console.log(status);
            });    
     };
-	//////////直播配图//////////
     ////分类管理
     $scope.classifyPicData = [
         {
@@ -1114,7 +1096,8 @@ getData = function($scope,$http){
     ////配图开关
     $scope.turnPic = function(){
         this.list.state = !this.list.state;
-        $scope.savePic();
+		var myData = this.list;
+        $scope.savePic('update',myData);
     };
     ///////增加信息
     $scope.addPicture = function(){
@@ -1134,9 +1117,10 @@ getData = function($scope,$http){
     /////删除信息
     $scope.deletePic = function(index){
         $scope.picData.splice(index,1);
-        $scope.savePic();
+		var myData = this.list.id;
+        $scope.savePic('delete',myData);
     };
-    $scope.weightData=[
+	 $scope.weightData=[
             {value:1},
             {value:2},
             {value:3},
@@ -1154,23 +1138,26 @@ getData = function($scope,$http){
             $rootScope.allClose = 'hide';
             $rootScope.tipText = '请上传图片！';
         }else{
+			var picUrl;
             $scope.master= {};
             $scope.master = angular.copy($scope.picture);
             switch(picTypes){
                 case 'add':
                 $scope.picData.push($scope.master);
+				picUrl = PIC_LIST_URL + '?act=add'
                 break;
                 
                 case 'update':
                 $scope.picData[index]=$scope.master;
+				picUrl = PIC_LIST_URL + '?act=update'
                 break;
                 
             };
-            var submitPicData = angular.toJson($scope.picData);
+            var submitPicData = angular.toJson($scope.master);
             console.log(submitPicData);
             ///////
             $http({
-                url: PIC_LIST_URL,
+                url: picUrl,
                 method: "POST",
                 data: {key:classifyPicType,data:submitPicData}
                }).success(function (data, status, headers, config) {
@@ -1196,12 +1183,12 @@ getData = function($scope,$http){
            });    
         };
     };
-    $scope.savePic = function(){
-        var submitPicData = angular.toJson($scope.picData);
+    $scope.savePic = function(types,myData){
+        var submitPicData = angular.toJson(myData);
         console.log(submitPicData);
         ///////
         $http({
-            url: PIC_LIST_URL,
+            url: PIC_LIST_URL + '?act=' + types,
             method: "POST",
             data: {key:classifyPicType,data:submitPicData}
            }).success(function (data, status, headers, config) {
@@ -1215,6 +1202,28 @@ getData = function($scope,$http){
             console.log(status);
        });        
     };
+//	$scope.picData = [];
+};
+//////
+getData = function($scope,$http,$rootScope){
+	$scope.classifyPic('starting');
+    /*$http({
+        url: PIC_LIST_URL + "?data=starting",
+        method: "GET"
+    }).success(function (data, status, headers, config) {
+        if(data.status==200){
+			pictureData = data.picData;
+            $scope.picData = data.picData;
+        }
+        else if(data.status==500){
+            $rootScope.tipBox = "show";
+            $rootScope.tipText="提交失败，请重试。";
+            $rootScope.tipClose = 'show';
+            $rootScope.allClose = 'hide';
+        }
+    }).error(function (data, status, headers, config) {
+        console.log(status);
+    });*/
 };
 angular.element(document).ready(function(){
     ////二级菜单

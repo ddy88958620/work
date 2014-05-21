@@ -1,3 +1,8 @@
+#-*- coding: utf-8 -*-
+
 import hashlib
 
-print hashlib.md5("123456").hexdigest()
+a = "aaaasdfasdfasdfasdfasdfasfasdfasfasd"
+b = "aaaasdfasdfasdfasdfasdfasfasdfasfasdaaaa"
+
+print b - a

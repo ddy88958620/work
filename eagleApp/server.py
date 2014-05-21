@@ -6,13 +6,16 @@ reload(sys)
 sys.setdefaultencoding("utf-8")
 import web
 import json
-import utils
 import config
 import hashlib
+import shutil
+import os
 
 # web.config.debug = False
+
 LIVE_PIC_DOMIN = "http://eagleapp.qiniudn.com"
-LIVE_PIC_DIR = "static/live_uploads/"
+LIVE_PIC_DIR = "/static/live_uploads/"
+TMP_DIR = "/static/tmp/"
 
 render = web.template.render("templates/")
 
@@ -46,6 +49,18 @@ index_url = "/index.html"
 
 app = web.application(urls, globals())
 
+# initializer = {
+#     "loggedin": False,
+#     "user": None
+# }
+# session = web.session.Session(app, web.session.DiskStore("sessions"), initializer=initializer)
+# web.config.session_parameters['cookie_name'] = 'session_id'
+# web.config.session_parameters["timeout"] = 300
+# web.config.session_parameters["ignore_expiry"] = False
+# web.config.session_parameters["ignore_change_ip"] = False
+
+db = web.database(dbn="mysql", db=config.db, user=config.user, pw=config.passwd)
+
 if web.config.get('_session') is None:
     initializer = {
         "loggedin": False,
@@ -60,7 +75,6 @@ if web.config.get('_session') is None:
 else:
     session = web.config._session
 
-db = web.database(dbn="mysql", db=config.db, user=config.user, pw=config.passwd)
 
 def logged():
     if session.loggedin == True:
@@ -149,8 +163,7 @@ class livePic():
 
     def GET(self):
         data_type = web.input()
-        print data_type
-        what = "url, time, status, weight"
+        what = "id, url, time, status, weight"
 
         if data_type.data == "starting":
             results = db.select(self.start_tab, what=what, order="status DESC, id")
@@ -160,34 +173,97 @@ class livePic():
         data = {}
         data["status"] = 200
         data["picData"] = []
-        for i in results:
+        for r in results:
             item = {}
-            item["pic"] = LIVE_PIC_DOMIN + i.url
-            item["time"] = i.time.strftime("%Y-%m-%d %H:%M:%S")
-            item["state"] = bool(i.status)
-            item["weight"] = i.weight
+            item["id"] = r.id
+            item["pic"] = r.url
+            item["time"] = r.time.strftime("%Y-%m-%d %H:%M:%S")
+            item["state"] = bool(r.status)
+            item["weight"] = r.weight
             data["picData"].append(item)
         data = json.dumps(data)
         return data
 
     def POST(self):
-        data = web.input()
+        if logged():
+            act = web.input().act
+            input_data = json.loads(web.data())
+            key = input_data["key"]
+            data = json.loads(input_data["data"])
+
+            if key == "starting":
+                tab = self.start_tab
+            elif key == "loading":
+                tab = self.load_tab
+
+            if act == "update":
+                self._update(tab, data)
+            elif act == "add":
+                self._add(tab, data)
+            elif act == "delete":
+                self._delete(tab, data)
+
+            return json.dumps({'status': 200})
+        else:
+            pass
+
+    def _update(self, tab, data):
+        domain = web.ctx.homedomain
+        url = data["pic"]
+        weight = data["weight"]
+        if data["state"]:
+            state = 1
+        else:
+            state = 0
+        id = data["id"]
+        where_vars = {"id": id}
+
+        pic_name = url.split("/")[-1]
+        tmp_dir = "".join([sys.path[0], TMP_DIR, pic_name])
+        if os.path.exists(tmp_dir):
+            new_dir = "".join([sys.path[0], LIVE_PIC_DIR])
+            shutil.move(tmp_dir, new_dir)
+            url = "".join([domain, LIVE_PIC_DIR, pic_name])
+
+        db.update(tab, vars=where_vars, where="id=$id", url=url, status=state, weight=weight)
+
+    def _add(self, tab, data):
+        domain = web.ctx.homedomain
+        url = data["pic"]
+        weight = data["weight"]
+        if domain in url:
+            pic_dir = url.replace(domain, "")
+            pic_name = pic_dir.split("/")[-1]
+            tmp_dir = "".join([sys.path[0], pic_dir])
+            new_dir = "".join([sys.path[0], LIVE_PIC_DIR])
+            shutil.move(tmp_dir, new_dir)
+            url = "".join([LIVE_PIC_DIR, pic_name])
+        db.insert(tab, url=url, status=1, weight=weight)
+
+    def _delete(self, tab, data):
+        id = data
+        where_vars = {"id": id}
+        db.delete(tab, vars=where_vars, where="id=$id")
 
 
 class livePicUpload:
     def POST(self):
-        pic = web.input()
-        pic_name = pic.Filename
-        pic_data = pic.Filedata
-        pic_path = "".join([LIVE_PIC_DIR, pic_name])
-        # pic_path = "".join([LIVE_IMG_DOMIN, pic_name])
-        with open(pic_path, "w") as f:
-            f.write(pic_data)
+        if logged():
+            pic = web.input()
+            pic_name = pic.Filename
+            pic_data = pic.Filedata
+            pic_path = "".join([sys.path[0], TMP_DIR, pic_name])
+            with open(pic_path, "w") as f:
+                f.write(pic_data)
 
-        data = {}
-        data["status"] = 200
-        data["url"] = "http://210.73.218.156:57709/" + pic_path
-        data = json.dumps(data)
+            data = {}
+            data["status"] = 200
+            data["url"] = "".join([web.ctx.homedomain, TMP_DIR, pic_name])
+            data = json.dumps(data)
+        else:
+            data = json.dumps({'status': 403})
+            web.seeother(login_url)
+
         return data
 
 
