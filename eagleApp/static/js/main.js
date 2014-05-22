@@ -53,9 +53,10 @@ app.directive("uploadUploadify", function() {
                 'auto': true,
                 'swf': opts.swf || 'static/js/uploadify.swf',
                 'uploader': opts.uploader || LIVE_PIC_UPLOAD,//图片上传方法
-                'fileTypeDesc' : 'Image Files (.JPG,.JPEG,.GIF,.PNG,.BMP)', //出现在上传对话框中的文件类型描述
-                'fileTypeExts' : '*.jpg;*.jpeg;*.gif;*.png;*.bmp', //控制可上传文件的扩展名，启用本项时需同时声明fileDesc
-                'fileSizeLimit' : 1024*5+'KB', //控制上传文件的大小，单位byte
+                'muti': false,
+                'fileTypeDesc': 'Image Files (.JPG,.JPEG,.GIF,.PNG,.BMP)', //出现在上传对话框中的文件类型描述
+                'fileTypeExts': '*.jpg;*.jpeg;*.gif;*.png;*.bmp', //控制可上传文件的扩展名，启用本项时需同时声明fileDesc
+                'fileSizeLimit': 1024*5+'KB', //控制上传文件的大小，单位byte
 
                 'buttonText': opts.buttonText || '上传文件',
                 'width': opts.width || '100%',
@@ -420,14 +421,14 @@ overall = function($scope,$http,$rootScope,$filter){
     $scope.addList = function(){
         $rootScope.popupBox ='show';
         $rootScope.allBox = 'show';
-        $rootScope.app = {history:[]};
+        $scope.app = {history:[]};
         $rootScope.types = 'add';
         $rootScope._top = 56;
     };
     
     ////编辑信息
     $scope.updateList = function(index){
-        $rootScope.app = this.list;
+        $scope.app = this.list;
         $rootScope.popupBox ='show';
         $rootScope.allBox = 'show';
         var _scrollTop = document.body.scrollTop || document.documentElement.scrollTop
@@ -664,7 +665,7 @@ appHistory = function($scope,$http,$rootScope){*/
         };
         $rootScope.allBox = 'show';
         $rootScope.listBox = 'show';    
-        $rootScope.app = {};
+        $scope.app = {};
         $rootScope.types = 'add';
         var num = $scope.chooseData.length;
         if(num<12){
@@ -1104,7 +1105,7 @@ appHistory = function($scope,$http,$rootScope){*/
         $rootScope.popupBox ='show';
         $rootScope.allBox = 'show';
         $rootScope.types = 'add';  
-        $rootScope.picture = {weight:1,pic:''};  
+        $scope.picture = {weight:1,pic:''};  
     };
     ////编辑信息
     $scope.updatePicture = function(index){
@@ -1112,7 +1113,7 @@ appHistory = function($scope,$http,$rootScope){*/
         $rootScope.allBox = 'show';
         $rootScope.types = 'update';  
         $rootScope.num = index;
-        $rootScope.picture = this.list;  
+        $scope.picture = this.list;
     };
     /////删除信息
     $scope.deletePic = function(index){

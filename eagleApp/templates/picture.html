@@ -1,3 +1,4 @@
+$def with(user_name)
 <!DOCTYPE html>
 <html ng-app="myApp" id="ng-app" ng-cloak>
 <head>
@@ -11,7 +12,6 @@
 <script type="text/javascript" src="static/js/angular.min.js"></script>
 <script type="text/javascript" src="static/js/list.js"></script>
 <script type="text/javascript" src="static/js/main.js"></script>
-
 </head>
 
 <body ng-controller="overall">
@@ -19,7 +19,7 @@
     <div class="logo">
         <p>当前用户</p>
         <p>
-            <strong>XXXXXXXXX</strong>
+            <strong>$user_name</strong>
         </p>
     </div>
     <ul id="nav">
@@ -39,8 +39,8 @@
     </ul>
     <div class="right">&nbsp;</div>
 </div><!--end header-->
-<div class="layout" ng-controller="getData">
-    
+<div class="layout">
+    <span ng-controller="getData" style="display:none;"></span>
     <div class="top"></div>
     <div class="box">
         <div class="title">
@@ -130,7 +130,7 @@
                 </select>
             </li>
             <li class="full">
-                <div class="picBox"><img ng-src="{{picture.pic}}" width="420" height="315" ng-show="picture.pic" /></div>
+                <div class="picBox"><img ng-src="{{picture.pic}}" height="315" ng-show="picture.pic" /></div>
             </li>
             <li class="button">
                 <a href="javascript:void(0);" ng-click="submitPic(types,num)" class="submit">提交</a>

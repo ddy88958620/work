@@ -10,12 +10,15 @@ import config
 import hashlib
 import shutil
 import os
+import datetime
 
 # web.config.debug = False
 
-LIVE_PIC_DOMIN = "http://eagleapp.qiniudn.com"
-LIVE_PIC_DIR = "/static/live_uploads/"
+LOAD_PIC_DIR = "/image/loading/"
+START_PIC_DIR = "/image/splash/"
+STATIC = "/static"
 TMP_DIR = "/static/tmp/"
+DOMAIN = "http://eagleapp.tv:57709"
 
 render = web.template.render("templates/")
 
@@ -85,8 +88,11 @@ def logged():
 def existed(user, pw):
     pwhash = hashlib.md5(pw).hexdigest()
     user_vars = {"user": user, "pw": pwhash}
-    exist = db.select("users", vars=user_vars, where="uname=$user and passwd=$pw")
+    exist = db.select("admin", vars=user_vars, where="uname=$user and passwd=$pw")
     return exist
+
+# def redirect():
+#     web.seeother(login_url)
 
 class login:
     def GET(self):
@@ -103,10 +109,8 @@ class login:
         if exist:
             session.loggedin = True
             session.user = user
-            # web.ctx.status = 200
             data = json.dumps({"status": 200})
         else:
-            # web.ctx.status = 403
             data = json.dumps({"status": 403})
 
         return data
@@ -114,7 +118,7 @@ class login:
 class index:
     def GET(self):
         if logged():
-            return render.index()
+            return render.index(session.user)
         else:
             raise web.seeother(login_url)
 
@@ -122,21 +126,21 @@ class index:
 class picture:
     def GET(self):
         if logged():
-            return render.picture()
+            return render.picture(session.user)
         else:
             raise web.seeother(login_url)
 
 class live:
     def GET(self):
         if logged():
-            return render.live()
+            return render.live(session.user)
         else:
             raise web.seeother(login_url)
 
 class recommend:
     def GET(self):
         if logged():
-            return render.recommend()
+            return render.recommend(session.user)
         else:
             raise web.seeother(login_url)
 
@@ -148,17 +152,15 @@ class logout:
 class listdata():
     def GET(self):
         pass
-        #score, show, pic
-        # what = "name, icon, publishdate, version, download, fullinfo"
 
 class appEdit():
     def POST(self):
         pass
-        # data = web.data()
+
 
 class livePic():
     def __init__(self):
-        self.start_tab = "live_starting"
+        self.start_tab = "live_splash"
         self.load_tab = "live_loading"
 
     def GET(self):
@@ -166,9 +168,9 @@ class livePic():
         what = "id, url, time, status, weight"
 
         if data_type.data == "starting":
-            results = db.select(self.start_tab, what=what, order="status DESC, id")
+            results = db.select(self.start_tab, what=what, order="status DESC, time DESC")
         elif data_type.data == "loading":
-            results = db.select(self.load_tab, what=what, order="status DESC, id")
+            results = db.select(self.load_tab, what=what, order="status DESC, time DESC")
 
         data = {}
         data["status"] = 200
@@ -176,9 +178,12 @@ class livePic():
         for r in results:
             item = {}
             item["id"] = r.id
-            item["pic"] = r.url
+            item["pic"] = STATIC + r.url
             item["time"] = r.time.strftime("%Y-%m-%d %H:%M:%S")
-            item["state"] = bool(r.status)
+            if r.status == "1":
+                item["state"] = True
+            else:
+                item["state"] = False
             item["weight"] = r.weight
             data["picData"].append(item)
         data = json.dumps(data)
@@ -186,6 +191,7 @@ class livePic():
 
     def POST(self):
         if logged():
+            resp_data = {"status": 200}
             act = web.input().act
             input_data = json.loads(web.data())
             key = input_data["key"]
@@ -193,88 +199,105 @@ class livePic():
 
             if key == "starting":
                 tab = self.start_tab
+                pic_dir = START_PIC_DIR
             elif key == "loading":
                 tab = self.load_tab
+                pic_dir = LOAD_PIC_DIR
 
             if act == "update":
-                self._update(tab, data)
+                self._update(tab, pic_dir, data)
             elif act == "add":
-                self._add(tab, data)
+                self._add(tab, pic_dir, data)
             elif act == "delete":
-                self._delete(tab, data)
+                self._delete(tab, pic_dir, data)
 
-            return json.dumps({'status': 200})
+            return json.dumps(resp_data)
         else:
             pass
 
-    def _update(self, tab, data):
-        domain = web.ctx.homedomain
+    def _update(self, tab, pic_dir, data):
         url = data["pic"]
-        weight = data["weight"]
-        if data["state"]:
-            state = 1
-        else:
-            state = 0
         id = data["id"]
+
+        if "weight" in data:
+            weight = data["weight"]
+        else:
+            weight = 1
+
+        if "state" in data:
+            if data["state"]:
+                state = 1
+            else:
+                state = 0
+        else:
+            state = 1
+
+        pic_name = os.path.basename(url)
+        tmp_pic = "".join([sys.path[0], TMP_DIR, pic_name])
+        url = "".join([pic_dir, pic_name])
+        if os.path.exists(tmp_pic):
+            # dst_dir = "".join([sys.path[0], pic_dir])
+            dst_dir = "".join([sys.path[0], STATIC, pic_dir])
+            shutil.copy(tmp_pic, dst_dir)
+
         where_vars = {"id": id}
-
-        pic_name = url.split("/")[-1]
-        tmp_dir = "".join([sys.path[0], TMP_DIR, pic_name])
-        if os.path.exists(tmp_dir):
-            new_dir = "".join([sys.path[0], LIVE_PIC_DIR])
-            shutil.move(tmp_dir, new_dir)
-            url = "".join([domain, LIVE_PIC_DIR, pic_name])
-
         db.update(tab, vars=where_vars, where="id=$id", url=url, status=state, weight=weight)
+        return True
 
-    def _add(self, tab, data):
-        domain = web.ctx.homedomain
+    def _add(self, tab, pic_dir, data):
         url = data["pic"]
-        weight = data["weight"]
-        if domain in url:
-            pic_dir = url.replace(domain, "")
-            pic_name = pic_dir.split("/")[-1]
-            tmp_dir = "".join([sys.path[0], pic_dir])
-            new_dir = "".join([sys.path[0], LIVE_PIC_DIR])
-            shutil.move(tmp_dir, new_dir)
-            url = "".join([LIVE_PIC_DIR, pic_name])
-        db.insert(tab, url=url, status=1, weight=weight)
+        if "weight" in data:
+            weight = data["weight"]
+        else:
+            weight = 1
 
-    def _delete(self, tab, data):
+        pic_name = os.path.basename(url)
+        tmp_pic = "".join([sys.path[0], url.replace(DOMAIN, "")])
+        # dst_dir = "".join([sys.path[0], pic_dir])
+        dst_dir = "".join([sys.path[0], STATIC, pic_dir])
+        shutil.copy(tmp_pic, dst_dir)
+        url = "".join([pic_dir, pic_name])
+        ###########################
+        db.insert(tab, url=url, status=0, weight=weight)
+        ###########################
+        return True
+
+    def _delete(self, tab, pic_dir, data):
         id = data
         where_vars = {"id": id}
+        results = db.select(tab, vars=where_vars, where="id=$id")
+        url = results[0].url
+        pic_name = os.path.basename(url)
+        pic_path = "".join([sys.path[0], STATIC, pic_dir, "/", pic_name])
+        os.rename(pic_path, "".join([pic_path, ".del"]))
+
         db.delete(tab, vars=where_vars, where="id=$id")
+
 
 
 class livePicUpload:
     def POST(self):
         if logged():
             pic = web.input()
-            pic_name = pic.Filename
+            dt = datetime.datetime.now()
+            pic_suffix = os.path.splitext(pic.Filename)[-1]
+            pic_name = "".join([dt.strftime("%Y%m%d-%H%M%S"), pic_suffix])
             pic_data = pic.Filedata
-            pic_path = "".join([sys.path[0], TMP_DIR, pic_name])
-            with open(pic_path, "w") as f:
+            tmp_pic = "".join([sys.path[0], TMP_DIR, pic_name])
+            with open(tmp_pic, "w") as f:
                 f.write(pic_data)
 
             data = {}
             data["status"] = 200
-            data["url"] = "".join([web.ctx.homedomain, TMP_DIR, pic_name])
+            data["url"] = "".join([DOMAIN, TMP_DIR, pic_name])
             data = json.dumps(data)
         else:
-            data = json.dumps({'status': 403})
+            resp_data = {"status": 500}
+            data = json.dumps(resp_data)
             web.seeother(login_url)
 
         return data
 
-
-class uploadTest:
-    # def GET(self):
-    #     x = web.input()
-    #     web.debug(x)
-
-    def POST(self):
-        x = web.input()
-        web.debug(x)
 
 if __name__ == "__main__":
     app.run()

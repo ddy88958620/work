@@ -14,7 +14,9 @@ import live_probe
 
 
 # 获取url源优先顺序
-prior_list = ["cntv", "qq", "sohu", "ysten"]
+prior_list = ["cntv.wscdns", "qq", "sohu", "ysten"]
+# 排除可能有问题的源的列表
+except_list = ["cntv", "cntv_hls"]
 # 暂存文件路径
 tmp_path = "".join([sys.path[0], "/tmp/"])
 # 整个脚本运行完成后将tmp中所有截图移动到snapshot文件夹中
@@ -60,12 +62,16 @@ def getSrcList(code):
 # 按照prior列表对src_list进行排序
 def sortSrcs(src_list):
     sorted_srcs = []
+    # other_srcs = []
     for site in prior_list:
         for src in src_list:
             if src["site"] == site:
                 sorted_srcs.append(src)
 
-    other_srcs = [x for x in src_list if x not in sorted_srcs]
+    # for src in src_list:
+    #     if src["site"] not in prior_list or src["site"] not in except_list:
+
+    other_srcs = [x for x in src_list if x["site"] not in sorted_srcs and x["site"] not in except_list]
     sorted_srcs.extend(other_srcs)
     return sorted_srcs
 
@@ -125,6 +131,8 @@ def snapshot(code, src_list):
             snap(url, pname)
             if os.path.exists("".join([tmp_path, pname])):
                 printFinish(code)
+                with open("problem.txt", "a+") as f:
+                    f.write(code + ": " + url + "\n")
                 return True
         except Exception, e:
             print e

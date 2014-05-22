@@ -1,3 +1,4 @@
+$def with(user_name)
 <!DOCTYPE html>
 <html ng-app="myApp" id="ng-app" ng-cloak>
 <head>
@@ -21,7 +22,7 @@ app = angular.module('myApp', ['ui.nestedSortable']);
     <div class="logo">
         <p>当前用户</p>
         <p>
-            <strong>XXXXXXXXX</strong>
+            <strong>$user_name</strong>
         </p>
     </div>
     <ul id="nav">
