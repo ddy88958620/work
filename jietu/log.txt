@@ -1,0 +1,608 @@
+{
+    "data_list": [
+        {
+            "url": "http://zb.v.qq.com:1863/?progid=974433428", 
+            "state": "successful"
+        }
+    ], 
+    "code": "guangxi", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://zb.v.qq.com:1863/?progid=877636586", 
+            "state": "successful"
+        }
+    ], 
+    "code": "qinghai", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://zb.v.qq.com:1863/?progid=3778086045", 
+            "state": "successful"
+        }
+    ], 
+    "code": "ningxia", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://zb.v.qq.com:1863/?progid=2453801339", 
+            "state": "successful"
+        }
+    ], 
+    "code": "sichuan", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://ppu.17kds.net/live/5/30/e0a1564fc9cd4fb4bb4efe9e804d8bcf.m3u8?type=ts", 
+            "state": "successful"
+        }
+    ], 
+    "code": "guangdong", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://zb.v.qq.com:1863/?progid=623043810&ostype=ios", 
+            "state": "successful"
+        }
+    ], 
+    "code": "anhui", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://zb.v.qq.com:1863/?progid=3006271240&ostype=ios", 
+            "state": "successful"
+        }
+    ], 
+    "code": "liaoning", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://gslb.tv.sohu.com/live?cid=25&type=hls", 
+            "state": "successful"
+        }
+    ], 
+    "code": "xizang", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://zb.v.qq.com:1863/?progid=2342060367&ostype=ios", 
+            "state": "successful"
+        }
+    ], 
+    "code": "neimenggu", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel169", 
+            "state": "failed"
+        }, 
+        {
+            "url": "http://vtime.cntv.cloudcdn.net:8000/live/flv/channel169", 
+            "state": "failed"
+        }, 
+        {
+            "url": "http://web-play.pptv.com/web-m3u8-300148.m3u8?type=m3u8.web.pad&playback=0&kk=None", 
+            "state": "failed"
+        }, 
+        {
+            "url": "http://qqlive.hdl.lxdns.com:80/3444760127.flv?apptype=live&pla=WIN&time=1401089574&cdn=wangsu&vkey=366A03862BEDAFF2102E233A50BEC0CE9AAF5FAF3AF1F1F5E3544AAB58BD585D33F90972D62A1098", 
+            "state": "successful"
+        }
+    ], 
+    "code": "gansu", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://zb.v.qq.com:1863/?progid=2907109968", 
+            "state": "successful"
+        }
+    ], 
+    "code": "zhejiang", 
+    "result": "Complete"
+}
+{
+    "data_list": [], 
+    "code": "cctvgaoqing", 
+    "result": "Can not snapshoted"
+}
+{
+    "data_list": [
+        {
+            "url": "http://ppu.17kds.net/live/5/30/f59d2cc92d944fd6baa0e7c6ffd0a0fc.m3u8?type=ts", 
+            "state": "successful"
+        }
+    ], 
+    "code": "heilongjiang", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://zb.v.qq.com:1863/?progid=4172356212", 
+            "state": "successful"
+        }
+    ], 
+    "code": "henan", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://ppu.17kds.net/live/5/30/3791a3d4b5214540bfe99b0680fbc76f.m3u8?type=ts", 
+            "state": "successful"
+        }
+    ], 
+    "code": "shandong", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://zb.v.qq.com:1863/?progid=3051487004&ostype=ios", 
+            "state": "successful"
+        }
+    ], 
+    "code": "guizhou", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://jxlive02.jx.ysten.com:8080/ysten-businessmobile/live/hdhunanstv/moretv.m3u8", 
+            "state": "successful"
+        }
+    ], 
+    "code": "hunan", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://ppu.17kds.net/live/5/30/66c56c64eda94929bf45dd212eaaa14f.m3u8?type=ts", 
+            "state": "successful"
+        }
+    ], 
+    "code": "shenzhen", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://vtime1.cntv.chinacache.net:8000/live/flv/channel249", 
+            "state": "failed"
+        }, 
+        {
+            "url": "http://vtime1.cntv.cloudcdn.net:8000/live/flv/channel249", 
+            "state": "failed"
+        }, 
+        {
+            "url": "http://api.moretv.com.cn/getUrl?page=http://mgtv.moretv.com.cn/1a98809922841db6a873778e8d7db73d&action=play", 
+            "state": "failed"
+        }
+    ], 
+    "code": "cctvchild", 
+    "result": "Can not snapshoted"
+}
+{
+    "data_list": [
+        {
+            "url": "http://vtime1.cntv.chinacache.net:8000/live/flv/channel254", 
+            "state": "failed"
+        }, 
+        {
+            "url": "http://vtime1.cntv.cloudcdn.net:8000/live/flv/channel254", 
+            "state": "failed"
+        }, 
+        {
+            "url": "http://api.moretv.com.cn/getUrl?page=http://mgtv.moretv.com.cn/dc1f764a01d4b0cab61f56d7ce978b88&action=play", 
+            "state": "failed"
+        }
+    ], 
+    "code": "cctv15", 
+    "result": "Can not snapshoted"
+}
+{
+    "data_list": [
+        {
+            "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel199", 
+            "state": "failed"
+        }, 
+        {
+            "url": "http://vtime.cntv.cloudcdn.net:8000/live/flv/channel199", 
+            "state": "failed"
+        }, 
+        {
+            "url": "http://web-play.pptv.com/web-m3u8-300411.m3u8?type=m3u8.web.pad&playback=0&kk=None", 
+            "state": "failed"
+        }, 
+        {
+            "url": "http://gslb.tv.sohu.com/live?cid=5&ver=seg&ckey=ZqIg7Eo-XzM8&type=hls&prot=1&sig=8L3Z02HvgDNZ1oU-8d1lRg..", 
+            "state": "successful"
+        }
+    ], 
+    "code": "xinjiang", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://zb.v.qq.com:1863/?progid=1000637964&ostype=ios", 
+            "state": "successful"
+        }
+    ], 
+    "code": "dongnan", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://zb.v.qq.com:1863/?progid=708402866", 
+            "state": "successful"
+        }
+    ], 
+    "code": "yunnan", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://ppu.17kds.net/live/5/30/0e14818cc6cf4b5e8469ffc9a15113a1.m3u8?type=ts", 
+            "state": "successful"
+        }
+    ], 
+    "code": "tianjin", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://jxlive01.jx.ysten.com:8080/ysten-businessmobile/live/hdbeijingstv/moretv.m3u8", 
+            "state": "successful"
+        }
+    ], 
+    "code": "btv1", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://ppu.17kds.net/live/5/30/676ccb4d1a1544998ac93d34011c8534.m3u8?type=ts", 
+            "state": "successful"
+        }
+    ], 
+    "code": "hebei", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://ppu.17kds.net/live/5/30/d4d7850159894c09bf4fd3d9ac09e097.m3u8?type=ts", 
+            "state": "successful"
+        }
+    ], 
+    "code": "cctv11", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://ppu.17kds.net/live/5/30/edfed5557876428fa6119dee99dee0f2.m3u8?type=ts", 
+            "state": "successful"
+        }
+    ], 
+    "code": "cctv10", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel139", 
+            "state": "failed"
+        }, 
+        {
+            "url": "http://vtime.cntv.cloudcdn.net:8000/live/flv/channel139", 
+            "state": "failed"
+        }, 
+        {
+            "url": "http://web-play.pptv.com/web-m3u8-300176.m3u8?type=m3u8.web.pad&playback=0&kk=None", 
+            "state": "failed"
+        }, 
+        {
+            "url": "http://gslb.tv.sohu.com/live?cid=21&ver=seg&ckey=fVE9d6wsjgYrRr&type=hls&prot=1&sig=k-oAPxOeQ7WURrZzJkI2Zw..", 
+            "state": "successful"
+        }
+    ], 
+    "code": "jilin", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://ppu.17kds.net/live/5/30/cf162a714d88428c9495ddd286b0fa0b.m3u8?type=ts", 
+            "state": "successful"
+        }
+    ], 
+    "code": "cctv12", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://web-play.pptv.com/web-m3u8-300169.m3u8?type=m3u8.web.pad", 
+            "state": "failed"
+        }, 
+        {
+            "url": "http://gslb.tv.sohu.com/live?cid=6&ver=seg&ckey=ZVIg7Eo-XzM8&type=hls&prot=1&sig=DleVLK6wEPHwCG6TeMnBWQ..", 
+            "state": "successful"
+        }
+    ], 
+    "code": "xiamen", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://ppu.17kds.net/live/5/30/3bfabc1fe16a4282b50ea095928c1f60.m3u8?type=ts", 
+            "state": "successful"
+        }
+    ], 
+    "code": "hubei", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://zb.v.qq.com:1863/?progid=2905421066&ostype=ios", 
+            "state": "successful"
+        }
+    ], 
+    "code": "chongqing", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://ppu.17kds.net/live/5/30/f9c6eb270b1a4587a65b043a235cca82.m3u8?type=ts", 
+            "state": "successful"
+        }
+    ], 
+    "code": "cctv8", 
+    "result": "Complete"
+}
+{
+    "data_list": [], 
+    "code": "yanbiantv", 
+    "result": "Can not snapshoted"
+}
+{
+    "data_list": [
+        {
+            "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel24", 
+            "state": "failed"
+        }, 
+        {
+            "url": "http://vtime.cntv.cloudcdn.net:8000/live/flv/channel24", 
+            "state": "failed"
+        }, 
+        {
+            "url": "http://zb.v.qq.com:1863/?progid=1641251988", 
+            "state": "successful"
+        }
+    ], 
+    "code": "cctv13", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://ppu.17kds.net/live/5/30/06c11d0b6c4a436e9133329b719e737d.m3u8?type=ts", 
+            "state": "successful"
+        }
+    ], 
+    "code": "cctv5", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://ppu.17kds.net/live/5/30/fbf101f4ecb04836b2ef730c582a0acc.m3u8?type=ts", 
+            "state": "successful"
+        }
+    ], 
+    "code": "cctv4", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://jxlive02.jx.ysten.com:8080/ysten-business/live/shandongjy/659694.m3u8", 
+            "state": "failed"
+        }, 
+        {
+            "url": "http://realtek.live.cctv1949.com/live/z1nEDd5WNGP30y41", 
+            "state": "failed"
+        }, 
+        {
+            "url": "http://jxlive02.jx.ysten.com:8080/ysten-business/live/shandongjy/659694.m3u8", 
+            "state": "failed"
+        }
+    ], 
+    "code": "sdetv", 
+    "result": "Can not snapshoted"
+}
+{
+    "data_list": [
+        {
+            "url": "http://ppu.17kds.net/live/5/30/4b5dd99236714df5b612692824b6a0b0.m3u8?type=ts", 
+            "state": "successful"
+        }
+    ], 
+    "code": "cctv7", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://ppu.17kds.net/live/5/30/58fd7d8b63264df1bb2960cfd481c28d.m3u8?type=ts", 
+            "state": "successful"
+        }
+    ], 
+    "code": "cctv6", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://ppu.17kds.net/live/5/30/53c90798941c4dada89edbeaa09c20a8.m3u8?type=ts", 
+            "state": "successful"
+        }
+    ], 
+    "code": "cctv1", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://ppu.17kds.net/live/5/30/15dbaa1ed0d74b3cb6bcf4107832c6ae.m3u8?type=ts", 
+            "state": "successful"
+        }
+    ], 
+    "code": "cctv3", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://ppu.17kds.net/live/5/30/a7a2a34c8c9b4740a06b421c6da280ad.m3u8?type=ts", 
+            "state": "successful"
+        }
+    ], 
+    "code": "cctv2", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://hls.ott.jsitv.net/harmonic/apple/cctv-9/stream1/streamPlaylist.m3u8", 
+            "state": "failed"
+        }, 
+        {
+            "url": "http://vtime1.cntv.chinacache.net:8000/live/flv/channel294", 
+            "state": "failed"
+        }, 
+        {
+            "url": "http://vtime1.cntv.cloudcdn.net:8000/live/flv/channel294", 
+            "state": "failed"
+        }, 
+        {
+            "url": "http://hls.ott.jsitv.net/harmonic/apple/cctv-9/stream1/streamPlaylist.m3u8", 
+            "state": "failed"
+        }, 
+        {
+            "url": "http://api.moretv.com.cn/getUrl?page=http://mgtv.moretv.com.cn/f75178a6f21f2816e8aa881e7a346b08&action=play", 
+            "state": "failed"
+        }
+    ], 
+    "code": "cctvjilu", 
+    "result": "Can not snapshoted"
+}
+{
+    "data_list": [
+        {
+            "url": "http://ppu.17kds.net/live/5/30/887d4d23ee894ceb8f5f457fa24f3e97.m3u8?type=ts", 
+            "state": "successful"
+        }
+    ], 
+    "code": "dongfang", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://ppu.17kds.net/live/5/30/238baa4ac12f427896cecf12234159ef.m3u8?type=ts", 
+            "state": "successful"
+        }
+    ], 
+    "code": "jiangsu", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://218.26.188.211/flvss?bitrate=800000&channel=Shan1XiTV", 
+            "state": "successful"
+        }
+    ], 
+    "code": "shan1xi", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://zb.v.qq.com:1863/?progid=2739752321", 
+            "state": "successful"
+        }
+    ], 
+    "code": "shan3xi", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel84", 
+            "state": "failed"
+        }, 
+        {
+            "url": "http://vtime.cntv.cloudcdn.net:8000/live/flv/channel84", 
+            "state": "failed"
+        }, 
+        {
+            "url": "http://web-play.pptv.com/web-m3u8-300168.m3u8?type=m3u8.web.pad", 
+            "state": "successful"
+        }
+    ], 
+    "code": "jiangxi", 
+    "result": "Complete"
+}
+{
+    "data_list": [
+        {
+            "url": "http://vtime.cntv.chinacache.net:8000/live/flv/channel179", 
+            "state": "failed"
+        }, 
+        {
+            "url": "http://vtime.cntv.cloudcdn.net:8000/live/flv/channel179", 
+            "state": "failed"
+        }, 
+        {
+            "url": "http://gslb.tv.sohu.com/live?cid=28&ver=seg&ckey=fV39d6wsjgYrRr&type=hls&prot=1&sig=bxCKcXkuAnn2c6GZgPU_OA..", 
+            "state": "failed"
+        }, 
+        {
+            "url": "http://gslb.tv.sohu.com/live?cid=28&ver=seg&ckey=fV39d6wsjgYrRr&type=hls&prot=1&sig=_aEIBZg3U31qilBKLNKMjQ..&ext=m3u8", 
+            "state": "successful"
+        }
+    ], 
+    "code": "travel", 
+    "result": "Complete"
+}

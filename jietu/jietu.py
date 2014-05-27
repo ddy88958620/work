@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 #-*- coding: utf-8 -*-
 
 import sys
@@ -13,19 +14,25 @@ import threading
 import live_probe
 
 
-# 获取url源优先顺序
-prior_list = ["cntv", "qq", "sohu", "ysten"]
+# 获取url源优先顺序(site列表)
+prior_list = ["ppu.17kds.net", "jsitv", "qq", "sohu", "ysten"]
+# 排除的排除可能有问题的源的列表
+except_list = ["cntv", "cntv_hls", "letv", "letv_mtv"]
 # 暂存文件路径
 tmp_path = "".join([sys.path[0], "/tmp/"])
 # 整个脚本运行完成后将tmp中所有截图移动到snapshot文件夹中
 snapshot_path = "".join([sys.path[0], "/snapshot/"])
+# log文件路径
+log_path = "".join([sys.path[0], "/log.txt"])
+# log文件读取锁
+log_lock = threading.Lock()
 # ffmpeg截图命令
 ffm_cmd = "".join([sys.path[0], "/ffmpeg -i %s -f image2 -ss 1 -s 250x180 -vframes 1 %s -y"])
 # 仅作为运行时计数用
 COUNT = 0
 count_lock = threading.Lock()
 # 截屏超时
-snap_timeout = 10
+snap_timeout = 15
 # code队列
 queue = Queue.Queue()
 
@@ -65,7 +72,7 @@ def sortSrcs(src_list):
             if src["site"] == site:
                 sorted_srcs.append(src)
 
-    other_srcs = [x for x in src_list if x not in sorted_srcs]
+    other_srcs = [x for x in src_list if x["site"] not in sorted_srcs and x["site"] not in except_list]
     sorted_srcs.extend(other_srcs)
     return sorted_srcs
 
@@ -88,11 +95,9 @@ def snap(url, pname):
             ret = p.poll()
             if ret:
                 time.sleep(2)
-                # subprocess.call("".join(["kill -9 ", str(p.pid)]), stderr=subprocess.PIPE, shell=True)
                 p.terminate()
                 return True
             elif timer == snap_timeout - 1:
-                # subprocess.call("".join(["kill -9 ", str(p.pid)]), stderr=subprocess.PIPE, shell=True)
                 p.terminate()
                 return False
             time.sleep(1)
@@ -111,8 +116,13 @@ def printFinish(code):
 
 # 遍历整个src_list并截图，并返回结果信息
 def snapshot(code, src_list):
+    logger = utils.Logger(code, log_path)
+
     if not src_list:
+        # log_lock.acquire()
         print "\033[1;31;40m------> src_list of", code, "is empty!\033[0m"
+        logger.log(level=3)
+        # log_lock.release()
         return False
 
     global COUNT
@@ -125,10 +135,14 @@ def snapshot(code, src_list):
             snap(url, pname)
             if os.path.exists("".join([tmp_path, pname])):
                 printFinish(code)
+                logger.log(1, url)
                 return True
+            else:
+                logger.log(2, url)
         except Exception, e:
             print e
 
+    logger.log(level=3)
     print "\033[1;31;40m------>", pname, "can not be created!\033[0m"
     return False
 
@@ -153,13 +167,15 @@ class SnapThread(threading.Thread):
 
 def init():
     if not os.path.exists(tmp_path):
-    os.makedirs(tmp_path)
+        os.makedirs(tmp_path)
 
     if not os.path.exists(snapshot_path):
         os.makedirs(snapshot_path)
 
+    with open(log_path, "w+") as f:
+	   pass
+       
     subprocess.call("".join(["rm ", tmp_path, "*"]), stderr=subprocess.PIPE, shell=True)
-
 
 
 def main():
@@ -184,9 +200,6 @@ def main():
 
     subprocess.call("".join(["mv ", tmp_path, "* ", snapshot_path]), shell=True)
 
-    # 实在不行只能这么办了......
-    # subprocess.Popen("killall -9 ffmpeg", stderr=subprocess.PIPE, shell=True)
-    
     for pid in pid_list:
         subprocess.call("".join(["kill -9 ", str(pid)]), stderr=subprocess.PIPE, shell=True)
 
