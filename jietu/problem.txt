@@ -1,0 +1,1 @@
+travel: http://web-play.pptv.com/web-m3u8-300158.m3u8?type=m3u8.web.pad&playback=0&kk=None

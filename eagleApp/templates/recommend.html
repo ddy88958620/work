@@ -1,3 +1,4 @@
+$def with(user_name)
 <!DOCTYPE html>
 <html ng-app="myApp" id="ng-app" ng-cloak>
 <head>
@@ -24,7 +25,7 @@ app = angular.module('myApp', ['ui.nestedSortable']);
     <div class="logo">
         <p>当前用户</p>
         <p>
-            <strong>XXXXXXXXX</strong>
+            <strong>$user_name</strong>
         </p>
     </div>
     <ul id="nav">
@@ -179,7 +180,7 @@ app = angular.module('myApp', ['ui.nestedSortable']);
     </div><!--end box-->
 </div><!--end layout-->
 <div id="all" ng-show="allBox=='show'" style="display:none;" ng-click="closeAll()">&nbsp;</div>
-<div class="popupBox" ng-show="popupBox =='show'" ng-style="{'top':_top}" ng-class="{'show': 'show', 'hide': ''}[popupBox]" style="display:none;">
+<div class="popupBox" ng-show="popupBox =='show'" ng-style="{'top':_top}" ng-class="{'show': 'show', 'hide': ''}[popupBox]" style="display:none; position:absolute;">
     <div class="title">
         修改内容
         <a href="javascript:void(0)" class="close" ng-click="closeAll()">关闭</a>
