@@ -16,7 +16,7 @@ login = function($scope,$http,$rootScope){
             var userWord = $scope.user.passwd;
             $scope.loading = "show";
             $http({
-                url: "./login",
+                url: "./login.html",
                 method: "POST",
                 data: {user:userName,passwd:userWord}
            }).success(function (data, status, headers, config) {
@@ -27,7 +27,7 @@ login = function($scope,$http,$rootScope){
                     window.location.href="index.html";
                 }
                 else if(data.status==403){
-                    $scope.popup = "show";
+                    $scope.tipBox = "show";
                     $scope.tipText = "用户名或密码有误！";
                 }
             }).error(function (data, status, headers, config) {

@@ -175,7 +175,7 @@ video = [
                 url:'http://www.moretv.com.cn/2.0.6.apk'
             }
         ]
-    },    
+    },
     {
         name:'迅雷云播',
         logo:'static/img/pic_03.jpg',
@@ -362,164 +362,124 @@ other = [
         ]
     }
 ];
-land =[
-    {
-        types:'land',
-        name:'中央一套',
-        state:true,
-        list:[
-            {
-                source:'土豆',
-                playUrl:'asdf',
-                state:false
-            },
-            {
-                source:'黄豆',
-                playUrl:'12354',
-                state:false
-            }
-        ]
-    },
-    {
-        types:'land',
-        name:'中央二套',
-        state:true,
-        list:[
-            {
-                source:'优酷',
-                playUrl:'asdfa',
-                state:true
-            }
-        ]
-    },
-    {
-        types:'land',
-        name:'中央三套',
-        state:true,
-        list:[
-            {
-                source:'优酷',
-                playUrl:'asdfa',
-                state:true
-            }
-        ]
-    },
-    {
-        types:'land',
-        name:'中央四套',
-        state:false,
-        list:[
-            {
-                source:'苹果',
-                playUrl:'aewfasd',
-                state:false
-            }
-        ]
-    },
-    {
-        types:'land',
-        name:'中央五套',
-        state:true,
-        list:[
-            {
-                source:'香蕉',
-                playUrl:'asdfc',
-                state:true
-            }
-        ]
-    },
-    {
-        types:'land',
-        name:'中央六套',
-        state:true,
-        list:[
-            {
-                source:'桔子',
-                playUrl:'asdfasd',
-                state:true
-            }
-        ]
-    }
-];
-cctv =[
-    {
-        types:'cctv',
-        name:'中央十一套',
-        state:true,
-        list:[
-            {
-                source:'爱奇艺',
-                playUrl:'asdf',
-                state:true
-            }
-        ]
-    }
-];
-local =[
-    {
-        types:'local',
-        name:'湖南卫视',
-        state:true,
-        list:[
-            {
-                source:'乐视网',
-                playUrl:'asdf',
-                state:true
-            }
-        ]
-    }
-];
-other =[
-    {
-        types:'other',
-        name:'电视猫',
-        state:true,
-        list:[
-            {
-                source:'土豆',
-                playUrl:'asdf',
-                state:true
-            }
-        ]
-    }
-];
-//starting=[
+//land =[
 //    {
-//        pic:'static/img/banner_01.png',
-//        time:'2014-03-22 15:23:14',
+//        types:'land',
+//        name:'中央一套',
 //        state:true,
-//        weight:1
+//        list:[
+//            {
+//                source:'土豆',
+//                playUrl:'asdf',
+//                state:false
+//            },
+//            {
+//                source:'黄豆',
+//                playUrl:'12354',
+//                state:false
+//            }
+//        ]
 //    },
 //    {
-//        pic:'static/img/banner_02.png',
-//        time:'2014-03-22 15:23:14',
+//        types:'land',
+//        name:'中央二套',
 //        state:true,
-//        weight:1
+//        list:[
+//            {
+//                source:'优酷',
+//                playUrl:'asdfa',
+//                state:true
+//            }
+//        ]
 //    },
 //    {
-//        pic:'static/img/banner_03.png',
-//        time:'2014-03-22 15:23:14',
+//        types:'land',
+//        name:'中央三套',
 //        state:true,
-//        weight:1
+//        list:[
+//            {
+//                source:'优酷',
+//                playUrl:'asdfa',
+//                state:true
+//            }
+//        ]
+//    },
+//    {
+//        types:'land',
+//        name:'中央四套',
+//        state:false,
+//        list:[
+//            {
+//                source:'苹果',
+//                playUrl:'aewfasd',
+//                state:false
+//            }
+//        ]
+//    },
+//    {
+//        types:'land',
+//        name:'中央五套',
+//        state:true,
+//        list:[
+//            {
+//                source:'香蕉',
+//                playUrl:'asdfc',
+//                state:true
+//            }
+//        ]
+//    },
+//    {
+//        types:'land',
+//        name:'中央六套',
+//        state:true,
+//        list:[
+//            {
+//                source:'桔子',
+//                playUrl:'asdfasd',
+//                state:true
+//            }
+//        ]
 //    }
 //];
-//loading=[
+//cctv =[
 //    {
-//        pic:'static/img/pic_01.jpg',
-//        time:'2014-03-22 15:23:14',
+//        types:'cctv',
+//        name:'中央十一套',
 //        state:true,
-//        weight:2
-//    },
+//        list:[
+//            {
+//                source:'爱奇艺',
+//                playUrl:'asdf',
+//                state:true
+//            }
+//        ]
+//    }
+//];
+//local =[
 //    {
-//        pic:'static/img/pic_02.jpg',
-//        time:'2014-03-22 15:23:14',
+//        types:'local',
+//        name:'湖南卫视',
 //        state:true,
-//        weight:3
-//    },
+//        list:[
+//            {
+//                source:'乐视网',
+//                playUrl:'asdf',
+//                state:true
+//            }
+//        ]
+//    }
+//];
+//other =[
 //    {
-//        pic:'static/img/pic_03.jpg',
-//        time:'2014-03-22 15:23:14',
+//        types:'other',
+//        name:'电视猫',
 //        state:true,
-//        weight:4
+//        list:[
+//            {
+//                source:'土豆',
+//                playUrl:'asdf',
+//                state:true
+//            }
+//        ]
 //    }
 //];
