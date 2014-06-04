@@ -3,10 +3,15 @@
  */
 
 import static java.lang.Math.*;
+import java.lang.*;
 
 public class Test {
-    public static final double avar = PI / 4;
     public static void main(String args[]){
-        System.out.println(sin(avar));
+        String a = "lllll";
+        String b = "fasdfasf";
+        StringBuilder builder = new StringBuilder();
+        builder.append(a);
+        builder.append(b);
+        System.out.println(builder.toString());
    }
 }

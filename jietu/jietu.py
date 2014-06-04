@@ -15,24 +15,34 @@ import live_probe
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> fcb98426123fb48a11c98028531885746774c98b
 # 获取url源优先顺序(site列表)
 prior_list = ["ppu.17kds.net", "jsitv", "qq", "sohu", "ysten"]
 # 排除的排除可能有问题的源的列表
 except_list = ["cntv", "cntv_hls", "letv", "letv_mtv"]
+<<<<<<< HEAD
 =======
 # 获取url源优先顺序
 prior_list = ["cntv.wscdns", "qq", "sohu", "ysten"]
 # 排除可能有问题的源的列表
 except_list = ["cntv", "cntv_hls"]
 >>>>>>> 85a34183b10450e8e9479f801435fe4a3e95566e
+=======
+>>>>>>> fcb98426123fb48a11c98028531885746774c98b
 # 暂存文件路径
 tmp_path = "".join([sys.path[0], "/tmp/"])
 # 整个脚本运行完成后将tmp中所有截图移动到snapshot文件夹中
 snapshot_path = "".join([sys.path[0], "/snapshot/"])
 # log文件路径
+<<<<<<< HEAD
 log_path = "".join([sys.path[0], "/log.txt"])
 # log文件读取锁
 log_lock = threading.Lock()
+=======
+log_path = "".join([sys.path[0], "/log.json"])
+>>>>>>> fcb98426123fb48a11c98028531885746774c98b
 # ffmpeg截图命令
 ffm_cmd = "".join([sys.path[0], "/ffmpeg -i %s -f image2 -ss 1 -s 250x180 -vframes 1 %s -y"])
 # 仅作为运行时计数用
@@ -74,18 +84,20 @@ def getSrcList(code):
 # 按照prior列表对src_list进行排序
 def sortSrcs(src_list):
     sorted_srcs = []
-    # other_srcs = []
     for site in prior_list:
         for src in src_list:
             if src["site"] == site:
                 sorted_srcs.append(src)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     # for src in src_list:
     #     if src["site"] not in prior_list or src["site"] not in except_list:
 
 >>>>>>> 85a34183b10450e8e9479f801435fe4a3e95566e
+=======
+>>>>>>> fcb98426123fb48a11c98028531885746774c98b
     other_srcs = [x for x in src_list if x["site"] not in sorted_srcs and x["site"] not in except_list]
     sorted_srcs.extend(other_srcs)
     return sorted_srcs
@@ -150,11 +162,15 @@ def snapshot(code, src_list):
             if os.path.exists("".join([tmp_path, pname])):
                 printFinish(code)
 <<<<<<< HEAD
+<<<<<<< HEAD
                 logger.log(1, url)
 =======
                 with open("problem.txt", "a+") as f:
                     f.write(code + ": " + url + "\n")
 >>>>>>> 85a34183b10450e8e9479f801435fe4a3e95566e
+=======
+                logger.log(1, url)
+>>>>>>> fcb98426123fb48a11c98028531885746774c98b
                 return True
             else:
                 logger.log(2, url)

@@ -6,4 +6,3 @@ charset = "utf-8"
 db = "eagleapp"
 user = "eagle"
 passwd = "app"
-

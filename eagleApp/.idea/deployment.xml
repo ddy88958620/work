@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="On explicit save action (File | Save All)" serverName="eagle_main" promptOnLocalOverwrite="false" autoUploadExternalChanges="true">
+  <component name="PublishConfigData" autoUpload="On explicit save action (File | Save All)" serverName="eagle_test" promptOnLocalOverwrite="false" autoUploadExternalChanges="true">
     <serverData>
       <paths name="eagle_main">
         <serverdata>
@@ -10,6 +10,13 @@
           <excludedPaths>
             <excludedPath path="/static/uploads/appicon" />
           </excludedPaths>
+        </serverdata>
+      </paths>
+      <paths name="eagle_test">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+          </mappings>
         </serverdata>
       </paths>
     </serverData>

@@ -8,6 +8,7 @@ RECOMMEND_EDIT_LIST_URL = 'recommend_edit';///////编辑
 RECOMMEND_DELETE_LIST_URL = 'recommend_delete';///////删除
 RECOMMEND_BUILD_LIST_URL ='recommend_build';/////拖动排序
 /*=======直播列表数据======*/
+LIVE_SOURCE_URL = 'live_source';/////获取源列表
 LIVE_EDIT_LIST_URL = 'live_edit';/////编辑
 LIVE_DELETE_LIST_URL = 'live_delete';/////删除
 LIVE_BUILD_LIST_URL ='live_build';/////拖动排序
@@ -761,116 +762,42 @@ appHistory = function($scope,$http,$rootScope){*/
         $scope.saveClassify();
     };
     ////直播分页
-    ctrlLive = function(){
-            ///////翻页
-            var sortingOrder = 'score';
-            $scope.sortingOrder = sortingOrder;
-            $scope._reverses = false;
-            $scope.filteredItems = [];
-            $scope.groupedItems = [];
-            $scope.itemsPerPage = 3;
-            $scope.pagedItems = [];
-            $scope.currentPage = 0;
-            var searchMatch = function (haystack, needle) {
-                if (!needle) {
-                    return true;
-                };
-                return haystack.toLowerCase().indexOf(needle.toLowerCase()) !== -1;
-            };
-        
-            // init the filtered items
-            $scope.searchs = function () {
-                $scope.filteredItems = $filter('filter')($scope.liveData, function (lives) {
-                    for(var attr in lives) {
-                        if (searchMatch(lives[attr], $scope.query))
-                            return true;
-                    };
-                    return false;
-                });
-                // take care of the sorting order
-                if ($scope.sortingOrder !== '') {
-                    $scope.filteredItems = $filter('orderBy')($scope.filteredItems, $scope.sortingOrder, $scope._reverses);
-                };
-                $scope.currentPage = 0;
-                // now group by pages
-                $scope.groupToPages();
-            };
-            // calculate page in place
-            $scope.groupToPages = function () {
-                $scope.pagedItems = [];
-                
-                for (var i = 0; i < $scope.filteredItems.length; i++) {
-                    if (i % $scope.itemsPerPage === 0) {
-                        $scope.pagedItems[Math.floor(i / $scope.itemsPerPage)] = [ $scope.filteredItems[i] ];
-                    } else {
-                        $scope.pagedItems[Math.floor(i / $scope.itemsPerPage)].push($scope.filteredItems[i]);
-                    };
-                };
-            };
-            
-            $scope.prevPage = function () {
-                if ($scope.currentPage > 0) {
-                    $scope.currentPage--;
-                };
-            };
-            
-            $scope.nextPage = function () {
-                if ($scope.currentPage < $scope.pagedItems.length - 1) {
-                    $scope.currentPage++;
-                };
-            };
-            
-            $scope.setPage = function () {
-                if(this.page){
-                     $scope.currentPage = this.page-1;
-                };
-            };
-        
-            // functions have been describe process the data for display
-            $scope.searchs();
-        
-        };
+    ctrlLive = function(){};/////翻页
     /////////////////////////////直播管理//////////////////////////////
-    $scope.classifyLive = function(){ 
-        classifyLiveType = this.classify.id
-        var content = eval(classifyLiveType);
-        $scope.liveData = content;
-        for(var i=0; i<$scope.liveData.length; i++){
-            $scope.liveData[i].drags='chapter';
-            for(var j=0; j<$scope.liveData[i].list.length; j++){
-                $scope.liveData[i].list[j].drags='lecture';
-            };
-        };
-        ctrlLive();
+	$scope.classifyLiveData = [];
+    $scope.classifyLive = function(type){
+        if(this.classify){
+            classifyLiveType = this.classify.code;
+        } else {
+            classifyLiveType = type;
+        }
+
+        $http({
+            url: LIVE_SOURCE_URL + "?code=" + classifyLiveType,
+            method: "GET"
+        }).success(function (data, status, headers, config) {
+            if (data.status == 200) {
+                $scope.liveData = data.liveData;
+                console.log($scope.liveData)
+                for(var i=0; i<$scope.liveData.length; i++){
+                    $scope.liveData[i].drags='chapter';
+                    for(var j=0; j<$scope.liveData[i].list.length; j++){
+                        $scope.liveData[i].list[j].drags='lecture';
+                    };
+               		ctrlLive();
+                };
+            } else if (data.status == 403) {
+                $rootScope.tipBox = "show";
+                $rootScope.tipText="获取源信息失败，请重试";
+                $rootScope.tipClose = 'show';
+                $rootScope.allClose = 'hide';
+            }
+        }).error(function (data, status, headers, config) {
+            console.log(status)
+        })
     };
-    $scope.classifyLiveData = [
-        {name:'大陆',id:'land'},
-        {name:'央视',id:'cctv'},
-        {name:'地方台',id:'local'},
-        {name:'其它',id:'other'},
-        {name:'其它',id:'other'},
-        {name:'其它',id:'other'},
-        {name:'其它',id:'other'},
-        {name:'其它',id:'other'},
-        {name:'其它其它其它其它其它其它',id:'other'},
-        {name:'其它',id:'other'},
-        {name:'其它',id:'other'},
-        {name:'其它',id:'other'},
-        {name:'其它',id:'other'},
-        {name:'其它',id:'other'},
-        {name:'其它',id:'other'},
-        {name:'其它',id:'other'},
-        {name:'其它',id:'other'},
-        {name:'其它',id:'other'},
-        {name:'其它',id:'other'},
-        {name:'其它',id:'other'},
-        {name:'其它',id:'other'},
-        {name:'其它',id:'other'},
-        {name:'其它',id:'other'},
-        {name:'其它',id:'other'},
-        {name:'其它',id:'other'}
-    ];
     ///////保存分类数据
+
     $scope.saveClassifyLive = function(save){
         var submitClassifyData = angular.toJson($scope.classifyLiveData);
         console.log(submitClassifyData);
@@ -957,7 +884,7 @@ appHistory = function($scope,$http,$rootScope){*/
         var myData = [];
         for(var i=0; i<$scope.pagedItems.length; i++){
             for(var j =0; j<$scope.pagedItems[i].length; j++){
-                myData.push($scope.pagedItems[i][j]);    
+                myData.push($scope.pagedItems[i][j]);
             };
         };
         $scope.saveLive('','build',myData);
@@ -1063,9 +990,9 @@ appHistory = function($scope,$http,$rootScope){*/
     ///////直播配图
 	 $scope.classifyPic = function(type){ 
 	    if(this.classify){
-			classifyPicType = this.classify.id
+			classifyPicType = this.classify.id;
 		}else{
-			classifyPicType = type;	
+			classifyPicType = type;
 		};
         $http({
                 url: PIC_LIST_URL+'?data=' + classifyPicType,
@@ -1114,6 +1041,7 @@ appHistory = function($scope,$http,$rootScope){*/
         $rootScope.types = 'update';  
         $rootScope.num = index;
         $scope.picture = this.list;
+		console.log($scope.picture);
     };
     /////删除信息
     $scope.deletePic = function(index){
@@ -1142,9 +1070,9 @@ appHistory = function($scope,$http,$rootScope){*/
 			var picUrl;
             $scope.master= {};
             $scope.master = angular.copy($scope.picture);
+			console.log($scope.picture);
             switch(picTypes){
                 case 'add':
-                $scope.picData.push($scope.master);
 				picUrl = PIC_LIST_URL + '?act=add'
                 break;
                 
@@ -1171,6 +1099,9 @@ appHistory = function($scope,$http,$rootScope){*/
                     ///////////// 初始化
                     $scope.picForm.$setPristine();
                     $scope.picture = {};
+                    if(picTypes=='add'){
+                        $scope.picData.push(data.picData);
+                    };
                 }
                 else if(data.status==500){
                     $rootScope.tipBox = "show";
@@ -1205,27 +1136,36 @@ appHistory = function($scope,$http,$rootScope){*/
     };
 //	$scope.picData = [];
 };
-//////
-getData = function($scope,$http,$rootScope){
+//////获取直播配图的启动页数据
+getPicData = function($scope,$http,$rootScope){
 	$scope.classifyPic('starting');
-    /*$http({
-        url: PIC_LIST_URL + "?data=starting",
+};
+
+
+//载入直播源管理页面时载入分类列表第一个分类的信息
+getLiveData = function($scope,$http,$rootScope){
+	////获取直播分类数据
+    $http({
+        url: LIVE_CLASSIFY_URL,
         method: "GET"
     }).success(function (data, status, headers, config) {
-        if(data.status==200){
-			pictureData = data.picData;
-            $scope.picData = data.picData;
-        }
-        else if(data.status==500){
+        if (data.status == 200) {
+            $scope.$parent.classifyLiveData = data.classifyLiveData;
+			var liveTypes = $scope.$parent.classifyLiveData[0].code;
+			$scope.$parent.tabOn = liveTypes;
+			////获取直播列表数据
+    		$scope.classifyLive(liveTypes);
+        } else if (data.status == 403) {
             $rootScope.tipBox = "show";
-            $rootScope.tipText="提交失败，请重试。";
+            $rootScope.tipText="获取tag信息失败，请重试";
             $rootScope.tipClose = 'show';
             $rootScope.allClose = 'hide';
         }
     }).error(function (data, status, headers, config) {
-        console.log(status);
-    });*/
+        console.log(status)
+    });
 };
+
 angular.element(document).ready(function(){
     ////二级菜单
     $('#nav>li').hover(function(){

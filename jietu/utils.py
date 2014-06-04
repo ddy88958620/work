@@ -52,9 +52,12 @@ class Logger():
             self.log_data["data_list"].append(data)
         elif level == 3:
             data["state"] = "failed"
+<<<<<<< HEAD
             # if url == None:
             #     self.log_data["result"] = "".join(["source list of ", self.code, "is empty"])
             # self.log_data["data_list"].append(data)
+=======
+>>>>>>> fcb98426123fb48a11c98028531885746774c98b
             self.log_data["result"] = "Can not snapshoted"
             self._log_complete()
 
@@ -63,4 +66,8 @@ class Logger():
         log_lock.acquire()
         with open(self.log_file, "a+") as f:
             f.write("".join([data, "\n\n"]))
+<<<<<<< HEAD
         log_lock.release()
+=======
+        log_lock.release()
+>>>>>>> fcb98426123fb48a11c98028531885746774c98b
